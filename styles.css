@@ -24,33 +24,56 @@ html, body {
 .container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1rem 2rem;
+  position: relative;
 }
 
 /* Navigation */
 nav {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background: #1a1a1a;
+  padding: 5rem 2rem 2rem 2rem;
+  transition: right 0.3s ease;
+  z-index: 1000;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+nav.open {
+  right: 0;
+}
+
+.nav-links {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .nav-links a {
   color: #e0e0e0;
   text-decoration: none;
-  margin-right: 1rem;
-  font-size: 0.95rem;
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-links a:hover {
   opacity: 1;
 }
 
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
 .social-icons a {
   color: #e0e0e0;
-  margin-left: 1rem;
   font-size: 1.2rem;
   opacity: 0.8;
   transition: opacity 0.2s ease;
@@ -68,6 +91,8 @@ h1, h2, h3 {
 
 h1 {
   font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  padding-right: 4rem; /* Make space for menu button */
 }
 
 h2 {
@@ -93,17 +118,31 @@ p {
 /* Specific Section Styles */
 #about .professional-summary {
   font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
 }
 
 .experience-item, .experience-item ul {
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.experience-item h3 {
+  margin-bottom: 0.5rem;
 }
 
 .experience-item span {
   display: block;
-  font-size: 0.9rem;
   color: #999;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.experience-item ul {
+  padding-left: 1.2rem;
+}
+
+.experience-item li {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
 }
 
 /* Contact Info */
@@ -115,7 +154,7 @@ p {
 /* Footer */
 footer {
   margin-top: 3rem;
-  text-align: center;
+  text-align: left;
   font-size: 0.9rem;
   color: #555;
 }
@@ -143,3 +182,152 @@ a:hover {
   filter: blur(0);
   transform: translateY(0);
 }
+
+/* Updated Navigation Styles */
+.menu-toggle {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1001;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+}
+
+.menu-toggle i {
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle.open i {
+  transform: rotate(90deg);
+}
+
+/* Smaller fonts for qualifications */
+#education .section-list li {
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+#education .section-list li strong {
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Responsive Styles (Mobile & Tablets) */
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: 95%;
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 1rem;
+  }
+  
+  nav {
+    width: 100%;
+    right: -100%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    padding-right: 3.5rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    text-align: left;
+  }
+
+  p, .section-list, .contact-info, footer {
+    text-align: left;
+  }
+
+  section {
+    margin: 3rem 0;
+  }
+  
+  #about {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Section spacing adjustments */
+section {
+  margin: 4rem 0;
+  padding: 0 1rem;
+}
+
+/* Education Section Styling */
+#education .section-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+#education .section-list li {
+  margin-bottom: 1.5rem;
+  color: #bbb;
+}
+
+#education .section-list li strong {
+  display: block;
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+#education .section-list li span {
+  color: #8fbc8f; /* Green color for the institution */
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Update the HTML structure for education items */
