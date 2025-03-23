@@ -27,6 +27,22 @@ html, body {
   padding: 1rem 2rem;
   position: relative;
 }
+/* Resume Download Button */
+.btn-download {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #8fbc8f;
+  color: #111;
+  font-weight: 600;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn-download:hover {
+  background-color: #6ea06e;
+}
 
 /* Navigation */
 nav {
