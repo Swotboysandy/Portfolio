@@ -44,6 +44,22 @@ html, body {
   background-color: #6ea06e;
 }
 
+.projects-list {
+  text-align: left;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.projects-list a {
+  color: #b5f1b7; /* Adjust color to match your theme */
+  text-decoration: none;
+}
+
+.projects-list a:hover {
+  text-decoration: underline;
+}
+
+
 /* Navigation */
 nav {
   position: fixed;
