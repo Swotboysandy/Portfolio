@@ -126,7 +126,7 @@ p {
 }
 
 .section-list {
-  list-style: disc inside;
+  list-style: disc;
   margin-left: 1rem;
   margin-bottom: 2rem;
 }
