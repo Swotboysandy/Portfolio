@@ -20,76 +20,7 @@ html, body {
   scroll-behavior: smooth; 
   scroll-padding-top: 80px; /* Adjust based on your header/nav height */  
 }
- /* Sleeping Character */
- .sleeping {
-  position: relative;
-  width: 150px;
-  height: 80px;
-  background-color: #f4c2c2;
-  border-radius: 50%;
-  box-shadow: inset -5px -5px 10px rgba(0,0,0,0.2);
-}
 
-/* Eyes */
-.eye {
-  position: absolute;
-  width: 15px;
-  height: 10px;
-  background: black;
-  border-radius: 50%;
-  top: 30px;
-}
-
-.eye.left {
-  left: 40px;
-}
-
-.eye.right {
-  right: 40px;
-}
-
-/* Zzz animation */
-.zzz {
-  position: absolute;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  opacity: 0;
-  animation: sleepZ 2s infinite;
-}
-
-.zzz.one {
-  top: -20px;
-  left: 50px;
-  animation-delay: 0s;
-}
-
-.zzz.two {
-  top: -40px;
-  left: 70px;
-  animation-delay: 0.5s;
-}
-
-.zzz.three {
-  top: -60px;
-  left: 90px;
-  animation-delay: 1s;
-}
-
-@keyframes sleepZ {
-  0% {
-      opacity: 0;
-      transform: translateY(0);
-  }
-  50% {
-      opacity: 1;
-      transform: translateY(-10px);
-  }
-  100% {
-      opacity: 0;
-      transform: translateY(-20px);
-  }
-}
 /* Layout Container */
 .container {
   max-width: 900px;
