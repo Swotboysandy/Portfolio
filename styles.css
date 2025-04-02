@@ -145,9 +145,12 @@ h2 {
 }
 
 /* Paragraphs and Lists */
-p {
+
+
+.professional-summary{
   margin-bottom: 1rem;
   color: #ccc;
+  font-weight: 300;
 }
 
 .section-list {
