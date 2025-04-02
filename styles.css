@@ -17,9 +17,79 @@ html, body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   color: #e0e0e0;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; 
+  scroll-padding-top: 80px; /* Adjust based on your header/nav height */  
+}
+ /* Sleeping Character */
+ .sleeping {
+  position: relative;
+  width: 150px;
+  height: 80px;
+  background-color: #f4c2c2;
+  border-radius: 50%;
+  box-shadow: inset -5px -5px 10px rgba(0,0,0,0.2);
 }
 
+/* Eyes */
+.eye {
+  position: absolute;
+  width: 15px;
+  height: 10px;
+  background: black;
+  border-radius: 50%;
+  top: 30px;
+}
+
+.eye.left {
+  left: 40px;
+}
+
+.eye.right {
+  right: 40px;
+}
+
+/* Zzz animation */
+.zzz {
+  position: absolute;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  opacity: 0;
+  animation: sleepZ 2s infinite;
+}
+
+.zzz.one {
+  top: -20px;
+  left: 50px;
+  animation-delay: 0s;
+}
+
+.zzz.two {
+  top: -40px;
+  left: 70px;
+  animation-delay: 0.5s;
+}
+
+.zzz.three {
+  top: -60px;
+  left: 90px;
+  animation-delay: 1s;
+}
+
+@keyframes sleepZ {
+  0% {
+      opacity: 0;
+      transform: translateY(0);
+  }
+  50% {
+      opacity: 1;
+      transform: translateY(-10px);
+  }
+  100% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+}
 /* Layout Container */
 .container {
   max-width: 900px;
@@ -27,23 +97,54 @@ html, body {
   padding: 1rem 2rem;
   position: relative;
 }
-/* Resume Download Button */
+
+:root {
+  --btn-primary: #d1a113; /* Base Yellow */
+  --btn-secondary: #e6b800; /* Slightly Lighter Yellow */
+  --btn-tertiary: #c99c0b; /* Darker Golden Yellow */
+}
+
+/* Resume Download Button with Gradient Effect */
 .btn-download {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #d1a113;
+  background-size: 200%;
+  background-image: linear-gradient(to right, var(--btn-primary) 0%, var(--btn-secondary) 51%, var(--btn-tertiary) 100%);
+  border: 2px solid var(--btn-primary);
   color: #111;
   font-weight: 600;
   border-radius: 5px;
   text-decoration: none;
-  transition: background 0.3s ease;
-  margin-top: 1rem;
+  transition: 0.1s ease-in-out;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Shine Effect */
+.btn-download::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-30deg);
+  transition: left .6s ease-in-out;
+}
+
+.btn-download:hover::before {
+  left: 120%;
+}
+
+/* Button Hover Effect */
 .btn-download:hover {
-  background-color: #d1a113;
+  background-position: right center;
+  box-shadow: 0 0 10px rgba(255, 223, 0, 0.5);
 }
 
+
+/* Projects List */
 .projects-list {
   text-align: left;
   font-size: 1.1em;
@@ -51,14 +152,9 @@ html, body {
 }
 
 .projects-list a {
-  color: #d1a113; /* Adjust color to match your theme */
+  color: #d1a113;
   text-decoration: none;
 }
-
-.projects-list a:hover {
-  text-decoration: underline;
-}
-
 
 /* Navigation */
 nav {
@@ -98,23 +194,6 @@ nav.open {
   opacity: 1;
 }
 
-.social-icons {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.social-icons a {
-  color: #e0e0e0;
-  font-size: 1.2rem;
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
-}
-
-.social-icons a:hover {
-  opacity: 1;
-}
-
 /* Section Titles */
 h1, h2, h3 {
   font-weight: 700;
@@ -124,7 +203,6 @@ h1, h2, h3 {
 h1 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
-  padding-right: 4rem; /* Make space for menu button */
 }
 
 h2 {
@@ -138,7 +216,7 @@ h2 {
 /* Paragraphs and Lists */
 p {
   margin-bottom: 1rem;
-  color: #bbb;
+  color: #ccc;
 }
 
 .section-list {
@@ -147,14 +225,8 @@ p {
   margin-bottom: 2rem;
 }
 
-/* Specific Section Styles */
-#about .professional-summary {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-
-.experience-item, .experience-item ul {
+/* Experience Section */
+.experience-item {
   margin-bottom: 3rem;
 }
 
@@ -197,10 +269,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 /* Fade-in Animation */
 .fade-in {
   opacity: 0;
@@ -215,7 +283,7 @@ a:hover {
   transform: translateY(0);
 }
 
-/* Updated Navigation Styles */
+/* Navigation Button */
 .menu-toggle {
   position: fixed;
   top: 2rem;
@@ -246,19 +314,32 @@ a:hover {
   transform: rotate(90deg);
 }
 
-/* Smaller fonts for qualifications */
+/* Education Section */
+#education .section-list {
+  list-style: none;
+  padding-left: 0;
+}
+
 #education .section-list li {
   font-size: 0.9rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.5rem;
+  color: #bbb;
 }
 
 #education .section-list li strong {
-  font-size: 1rem;
+  display: block;
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+#education .section-list li span {
+  color: #d1a113;
   display: block;
   margin-bottom: 0.2rem;
 }
 
-/* Responsive Styles (Mobile & Tablets) */
+/* Responsive Styles */
 @media screen and (max-width: 1024px) {
   .container {
     max-width: 95%;
@@ -304,30 +385,16 @@ a:hover {
     gap: 0.8rem;
   }
 
-  .nav-links a {
-    font-size: 1rem;
-  }
-
   h1 {
     font-size: 2rem;
-    padding-right: 3.5rem;
   }
 
   h2 {
     font-size: 1.4rem;
-    text-align: left;
   }
 
   p, .section-list, .contact-info, footer {
     text-align: left;
-  }
-
-  section {
-    margin: 3rem 0;
-  }
-  
-  #about {
-    margin-top: 1.5rem;
   }
 }
 
@@ -336,30 +403,3 @@ section {
   margin: 4rem 0;
   padding: 0 1rem;
 }
-
-/* Education Section Styling */
-#education .section-list {
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
-}
-
-#education .section-list li {
-  margin-bottom: 1.5rem;
-  color: #bbb;
-}
-
-#education .section-list li strong {
-  display: block;
-  color: white;
-  font-size: 1.1rem;
-  margin-bottom: 0.3rem;
-}
-
-#education .section-list li span {
-  color: #d1a113; /* Green color for the institution */
-  display: block;
-  margin-bottom: 0.2rem;
-}
-
-/* Update the HTML structure for education items */
