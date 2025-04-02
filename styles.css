@@ -31,7 +31,7 @@ html, body {
 .btn-download {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #8fbc8f;
+  background-color: #d1a113;
   color: #111;
   font-weight: 600;
   border-radius: 5px;
@@ -41,7 +41,7 @@ html, body {
 }
 
 .btn-download:hover {
-  background-color: #6ea06e;
+  background-color: #d1a113;
 }
 
 .projects-list {
@@ -51,7 +51,7 @@ html, body {
 }
 
 .projects-list a {
-  color: #b5f1b7; /* Adjust color to match your theme */
+  color: #d1a113; /* Adjust color to match your theme */
   text-decoration: none;
 }
 
@@ -129,7 +129,7 @@ h1 {
 
 h2 {
   font-size: 1.8rem;
-  border-bottom: 2px solid #8fbc8f;
+  border-bottom: 2px solid #d1a113;
   display: inline-block;
   padding-bottom: 0.3rem;
   margin-top: 2rem;
@@ -193,7 +193,7 @@ footer {
 
 /* Links */
 a {
-  color: #8fbc8f;
+  color: #d1a113;
   text-decoration: none;
 }
 
@@ -357,7 +357,7 @@ section {
 }
 
 #education .section-list li span {
-  color: #8fbc8f; /* Green color for the institution */
+  color: #d1a113; /* Green color for the institution */
   display: block;
   margin-bottom: 0.2rem;
 }
