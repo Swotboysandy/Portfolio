@@ -144,6 +144,12 @@ h2 {
   margin-top: 2rem;
 }
 
+@media (max-width: 768px) {
+section {
+  margin: 1rem 0 !important;
+  padding: 0 2rem !important;
+}
+}
 /* Paragraphs and Lists */
 
 
