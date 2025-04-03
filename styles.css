@@ -147,7 +147,7 @@ h2 {
 @media (max-width: 768px) {
 section {
   margin: 1rem 0 !important;
-  padding: 0 2rem !important;
+  padding: 0 1rem !important;
 }
 }
 /* Paragraphs and Lists */
