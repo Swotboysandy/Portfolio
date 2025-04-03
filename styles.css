@@ -163,6 +163,21 @@ section {
   list-style: disc;
   margin-bottom: 2rem;
 }
+.section-list {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+#skills .section-list li {
+  font-size: 0.9rem;
+  margin-bottom: .5rem;
+  color: #bbb;
+}
+
+#strengths .section-list li {
+  font-size: 0.9rem;
+  margin-bottom: .5rem;
+  color: #bbb;
+}
 
 /* Experience Section */
 .experience-item {
