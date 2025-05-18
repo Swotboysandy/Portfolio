@@ -34,7 +34,10 @@ html, body {
   --btn-secondary: #e6b800; /* Slightly Lighter Yellow */
   --btn-tertiary: #c99c0b; /* Darker Golden Yellow */
 }
-
+::selection{
+  background-color: #c99c0b;
+  color: black;
+}
 /* Resume Download Button with Gradient Effect */
 .btn-download {
   display: inline-block;
