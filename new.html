@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Sunny Kishor Singh – Resume</title>
+
+    <!-- Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --page-max: 700px;
+            --pad-block: 1.4rem;
+            --pad-inline: .9rem;
+            --text: #000;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.4;
+            color: var(--text);
+            padding: var(--pad-block) var(--pad-inline);
+            background: #fff;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page {
+            width: 100%;
+            max-width: var(--page-max);
+        }
+
+        h1 {
+            font-size: 18pt;
+            text-align: center;
+            margin-bottom: .3rem;
+        }
+
+        h2 {
+            font-size: 12pt;
+            font-weight: 600;
+            margin: .85rem 0 .2rem;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: 600;
+            margin: .65rem 0 .15rem;
+        }
+
+        ul {
+            margin-left: .9rem;
+        }
+
+        li {
+            margin-bottom: .2rem;
+        }
+
+        li::marker {
+            font-weight: 600;
+        }
+
+        a {
+            color: #105dd5;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .contact,
+        .links {
+            text-align: center;
+            font-size: 9pt;
+        }
+
+        .contact {
+            margin-bottom: .2rem;
+        }
+
+        .links {
+            margin-bottom: .9rem;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid var(--text);
+            margin: .55rem 0;
+        }
+
+        .section-heading {
+            font-weight: 600;
+        }
+
+        @media(max-width:480px) {
+            body {
+                font-size: 9.5pt;
+                line-height: 1.35;
+            }
+
+            h1 {
+                font-size: 16pt;
+            }
+
+            h2 {
+                font-size: 11pt;
+            }
+
+            h3 {
+                font-size: 10.5pt;
+            }
+
+            ul {
+                margin-left: .7rem;
+            }
+        }
+
+        /* Print styles - prevent awkward page breaks */
+        @media print {
+
+            h2,
+            h3 {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            li {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            ul {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .page {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- ===== HEADER ===== -->
+        <h1>Sunny Kishor Singh</h1>
+        <div class="contact">
+            India&nbsp;|&nbsp;
+            <a href="mailto:sunnysinghchauhan760@gmail.com">sunnysinghchauhan760@gmail.com</a>&nbsp;|&nbsp;
+            +91&nbsp;7667486824
+        </div>
+        <div class="links">
+            <a href="https://github.com/Swotboysandy">GitHub</a> |
+            <a href="https://www.linkedin.com/in/s7-chauhan/">LinkedIn</a> |
+            <a href="https://sunny-kishor-singh.vercel.app/">Portfolio</a>
+        </div>
+        <hr>
+
+        <!-- ===== SUMMARY ===== -->
+        <h2 class="section-heading">Professional Summary</h2>
+        <p>
+            Full Stack Developer with 3+ years of experience in web and mobile development. Skilled in
+            <strong>React, Next.js, JavaScript, React Native (Expo), and REST APIs</strong>. Proficient in building
+            <strong>modern web applications, responsive UIs, and cross-platform mobile apps</strong>. Experienced with
+            WordPress, Webflow, Shopify, and Framer. Proven ability to lead frontend projects and deliver
+            high-performance,
+            scalable solutions in fast-paced, collaborative environments.
+        </p>
+        <hr>
+
+        <!-- ===== WORK EXPERIENCE ===== -->
+        <h2 class="section-heading">Work Experience</h2>
+
+        <h3>Frontend Developer&nbsp;|&nbsp;DraftssTech Applications Pvt. Ltd.&nbsp;|&nbsp;Jul 2025 – Present</h3>
+        <ul>
+            <li>Lead and execute frontend projects using React, Next.js, Webflow, WordPress, Shopify, and Framer.</li>
+            <li>Collaborate with cross-functional teams to ensure UI/UX best practices and design consistency.</li>
+            <li>Manage and mentor developers when needed, ensuring code quality and timely delivery.</li>
+            <li>Deliver high-performance, responsive websites optimized for speed and SEO.</li>
+        </ul>
+
+        <h3>Full Stack Web Developer (Remote)&nbsp;|&nbsp;Sukan&nbsp;(Netherlands)&nbsp;|&nbsp;Nov 2023 – Jun 2025</h3>
+        <ul>
+            <li>Developed and maintained responsive WordPress websites from scratch using custom themes, ACF, and plugin
+                development.</li>
+            <li>Built user-friendly front-end interfaces using HTML5, CSS3, JavaScript, and jQuery aligned to designer
+                wireframes.</li>
+            <li>Integrated third-party tools (HubSpot, Stripe, PayPal) and custom APIs for marketing automation and
+                reporting.</li>
+            <li>Optimized site speed and security via caching, lazy loading, SSL setup, and Core Web Vitals best
+                practices.</li>
+            <li>Managed Git-based version control, deployments, and troubleshooting across staging and production
+                servers.</li>
+            <li>Worked cross-functionally with designers, marketers, and PMs in a remote agile environment.</li>
+        </ul>
+
+        <h3>Freelance Web Developer&nbsp;|&nbsp;India (Remote)&nbsp;|&nbsp;2021 – 2023</h3>
+        <ul>
+            <li>Built custom WordPress and WooCommerce websites for clients in e-commerce, personal brands, and services
+                industries.</li>
+            <li>Customized PHP functions, hooks, and shortcodes for dynamic functionality and admin flexibility.</li>
+            <li>Automated product flows and integrated Razorpay, Stripe, and PayPal payment gateways.</li>
+            <li>Created responsive landing pages and blogs, improving conversion rates and engagement.</li>
+            <li>Provided end-to-end project delivery including hosting setup, analytics, SEO, and client handoff.</li>
+        </ul>
+        <hr>
+
+        <!-- ===== PROJECTS ===== -->
+        <h2 class="section-heading">Projects</h2>
+        <ul>
+            <li><strong>PracandyFlix</strong> – Netflix-inspired Android streaming app built with
+                <strong>Kotlin</strong>. Features dark premium UI, Lottie animations, fullscreen video support, domain
+                whitelist security, and local caching.
+                <a href="https://github.com/Swotboysandy/pracandyflix">GitHub</a>
+            </li>
+            <li><strong>YoYoMusic</strong> – Real-time, community-powered music room where users join, queue songs, and
+                vote to play/skip. Built with <strong>HTML, CSS, JavaScript, Node.js</strong>. Features real-time sync,
+                voting system, and live playback.
+                <a href="https://github.com/Swotboysandy/yoyomusic">GitHub</a> • <a
+                    href="https://yoyomusic.onrender.com/">Live Demo</a>
+            </li>
+            <li><strong>PracandyWalls</strong> – Wallpaper app with <strong>React Native (Expo)</strong>. Features
+                native wallpaper module, full-screen preview mode, smart storage handling, and modern dark-themed UI.
+                <a href="https://github.com/Swotboysandy/pracandywalls">GitHub</a> • <a
+                    href="https://pracandywalls.vercel.app">Live Demo</a>
+            </li>
+            <li><strong>Portfolio Website</strong> – Personal portfolio built with <strong>HTML5, CSS3,
+                    JavaScript</strong>. Showcases projects, skills, and professional experience with responsive design.
+                <a href="https://github.com/Swotboysandy/Portfolio">GitHub</a> • <a
+                    href="https://sunny-kishor-singh.vercel.app/">Live</a>
+            </li>
+        </ul>
+        <hr>
+
+        <!-- ===== TECHNICAL SKILLS ===== -->
+        <h2 class="section-heading">Technical Skills</h2>
+        <ul>
+            <li><strong>Front-End:</strong> React, Next.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, jQuery, GSAP,
+                Framer,
+                responsive UI/UX</li>
+            <li><strong>CMS & E-commerce:</strong> WordPress, WooCommerce, Webflow, Shopify, custom themes & plugins
+            </li>
+            <li><strong>Back-End:</strong> PHP, Node.js, REST APIs, MySQL, Laravel</li>
+            <li><strong>Mobile Development:</strong> Android (Kotlin), React Native (Expo), WebView integrations, Lottie
+                animations</li>
+            <li><strong>Real-Time Technologies:</strong> WebSockets, Socket.io, live sync applications</li>
+            <li><strong>Integrations:</strong> HubSpot, Google Analytics, Stripe, PayPal, Razorpay, SMTP, CRMs</li>
+            <li><strong>Tools & Deployment:</strong> Git, GitHub, VS Code, Android Studio, Vercel, Render, Photoshop,
+                Canva</li>
+        </ul>
+        <hr>
+
+        <!-- ===== EDUCATION ===== -->
+        <h2 class="section-heading">Education</h2>
+        <ul>
+            <li><strong>MCA</strong> – VIT Vellore (in progress, expected 2026)</li>
+            <li><strong>BCA</strong> – MGM College of IT &amp; Management, Patna (2024)</li>
+            <li><strong>Intermediate Science</strong> – AN College, Patna (2021)</li>
+            <li><strong>Matriculation</strong> – Cambridge Public School, Patna (2019)</li>
+        </ul>
+        <hr>
+
+        <!-- ===== INTERESTS ===== -->
+        <h2 class="section-heading">Interests</h2>
+        <p>
+            Mobile app development&nbsp;| Real-time web applications&nbsp;| Open-source contributions&nbsp;| UI/UX
+            trends & performance optimization&nbsp;| Building user-centric tools
+        </p>
+        <hr>
+
+        <!-- ===== HOBBIES ===== -->
+        <h2 class="section-heading">Hobbies</h2>
+        <p>
+            Watching films & series&nbsp;| Playing games&nbsp;| Creating 3D renders
+        </p>
+
+    </div>
+</body>
+
+</html>
