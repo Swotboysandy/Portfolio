@@ -8,19 +8,25 @@ import ProjectOverview from "./components/home/project-overview"
 
 const page = () => {
   return (
-    <main>
-      <HeroSection/>
-      <Divider/>
-      <AboutMe/>
-      <Divider/>
-      <FeaturedWork/>
-      <Divider/>
-      <Experience/>
-      <Divider/>
-      <Education/>
-      <Divider/>
-      <ProjectOverview/>
-      <Divider/>
+    <main className="bg-background">
+      <HeroSection />
+      <Divider />
+      <div className="bg-background-subtle">
+        <AboutMe />
+      </div>
+      <Divider />
+      <FeaturedWork />
+      <Divider />
+      <div className="bg-background-subtle">
+        <Experience />
+      </div>
+      <Divider />
+      <Education />
+      <Divider />
+      <div className="bg-background-subtle">
+        <ProjectOverview />
+      </div>
+      <Divider />
     </main>
   )
 }

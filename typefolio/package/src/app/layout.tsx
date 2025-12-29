@@ -10,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Typefolio",
-  description: "Typefolio - Nextjs Templates",
+  title: "Sunny Singh",
+  description: "Full Stack Developer Portfolio - Sunny Singh",
 };
 
 export default function RootLayout({
@@ -21,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="dark" style={{ colorScheme: 'dark' }}>
+      <head>
+        <link rel="icon" href="/favicon.png" />
+      </head>
       <body className={inter.className}>
+        <div className="noise-overlay" />
         <Header />
         {children}
         <Footer />
