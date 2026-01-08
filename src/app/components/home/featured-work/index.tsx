@@ -20,10 +20,17 @@ const FeaturedWork = () => {
             liveUrl: "https://yoyomusic.onrender.com/"
         },
         {
+            title: "Cinemates",
+            description: "Watch videos together with friends in real-time! Sync YouTube and MP4 files while video chatting.",
+            tech: ["React", "WebRTC", "Node.js"],
+            repoUrl: "https://github.com/Swotboysandy/cinemates"
+        },
+        {
             title: "PracandyWalls",
             description: "Wallpaper app with curated collections and smooth animations for Android.",
             tech: ["Kotlin", "Android"],
-            repoUrl: "https://github.com/Swotboysandy/pracandywalls"
+            repoUrl: "https://github.com/Swotboysandy/pracandywalls",
+            liveUrl: "https://pracandywalls.vercel.app/"
         },
         {
             title: "Portfolio",
