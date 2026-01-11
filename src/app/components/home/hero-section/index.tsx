@@ -66,18 +66,18 @@ const HeroSection = () => {
 
                 {/* Bio Paragraphs */}
                 <FadeContent delay={600} className="space-y-4 text-zinc-400 leading-relaxed mb-8">
-                    <p>
+                    <div>
                         I build full-stack web and mobile applications. Passionate about creating projects that make a real-world impact with clean code and exceptional user experience.
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         Currently leading frontend projects at <Link href="https://draftss.com" target="_blank" className="hover:underline"><ShinyText color="white" className="font-semibold">DraftssTech</ShinyText></Link>, building high-performance, visually stunning websites using <Highlight>React</Highlight>, <Highlight>Next.js</Highlight>, and <Highlight>WordPress</Highlight>.
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         I work with <Highlight>React Native</Highlight>, <Highlight>Node.js</Highlight>, and <Highlight>Python</Highlight> most days, using <Highlight>TypeScript</Highlight> for type safety. I enjoy building things that look good, perform well, and help solve real problems.
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         Open to collaborations and opportunities. Feel free to reach out!
-                    </p>
+                    </div>
                 </FadeContent>
 
                 {/* Social Links */}
