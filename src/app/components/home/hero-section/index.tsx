@@ -3,6 +3,7 @@ import Link from "next/link";
 import BlurText from "../../animations/BlurText";
 import FadeContent from "../../animations/FadeContent";
 import ShinyText from "../../animations/ShinyText";
+import { Tooltip } from "@/components/ui/tooltip-card";
 import { IoLogoLinkedin, IoLogoGithub, IoLogoTwitter, IoMailOutline } from "react-icons/io5";
 
 const HeroSection = () => {
@@ -29,9 +30,26 @@ const HeroSection = () => {
         },
     ];
 
-    const Highlight = ({ children }: { children: React.ReactNode }) => (
-        <span className="text-[#a78bfa] font-medium">{children}</span>
-    );
+    const techDescriptions: Record<string, string> = {
+        "React": "A JavaScript library for building user interfaces, developed by Facebook.",
+        "Next.js": "The React Framework for the Web.",
+        "WordPress": "A popular content management system (CMS).",
+        "React Native": "A framework for building native apps using React.",
+        "Node.js": "A JavaScript runtime built on Chrome's V8 JavaScript engine.",
+        "Python": "A versatile programming language known for its readability.",
+        "TypeScript": "A superset of JavaScript that adds static types.",
+    };
+
+    const Highlight = ({ children }: { children: React.ReactNode }) => {
+        const text = typeof children === 'string' ? children : String(children);
+        const description = techDescriptions[text] || "A professional technology I use.";
+
+        return (
+            <Tooltip content={description} containerClassName="inline-flex">
+                <span className="text-[#a78bfa] font-medium cursor-help border-b border-[#a78bfa]/20 hover:border-[#a78bfa] transition-colors">{children}</span>
+            </Tooltip>
+        );
+    };
 
     return (
         <section className="pt-8 sm:pt-12">

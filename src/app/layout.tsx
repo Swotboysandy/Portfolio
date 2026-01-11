@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import GrainOverlay from "./components/animations/GrainOverlay";
+import { SiteDock } from "@/components/layout/site-dock";
 
 const inter = Inter({
     variable: "--font-inter-sans",
@@ -26,6 +27,7 @@ export default function RootLayout({
             <body className={inter.className}>
                 <GrainOverlay opacity={0.03} />
                 {children}
+                <SiteDock />
             </body>
         </html>
     );

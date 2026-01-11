@@ -102,8 +102,7 @@ const FeaturedWork = () => {
                 {/* More Projects Link */}
                 <FadeContent delay={500}>
                     <Link
-                        href="https://github.com/Swotboysandy?tab=repositories"
-                        target="_blank"
+                        href="/projects"
                         className="block w-full text-center mt-4 py-2 border border-zinc-800 rounded-lg text-xs text-zinc-500 hover:text-white hover:border-zinc-700 transition-all"
                     >
                         More Projects →
