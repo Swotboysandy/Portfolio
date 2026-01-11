@@ -52,7 +52,7 @@ const HeroSection = () => {
     };
 
     return (
-        <section className="pt-8 sm:pt-12">
+        <section className="pt-20 sm:pt-24">
             <div className="max-w-2xl mx-auto px-5 sm:px-7">
                 {/* Name and Title */}
                 <div className="mb-6">

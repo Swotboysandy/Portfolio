@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import GrainOverlay from "./components/animations/GrainOverlay";
 import { SiteDock } from "@/components/layout/site-dock";
+import { StatusWidget } from "@/components/layout/status-widget";
 
 const inter = Inter({
     variable: "--font-inter-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({
                 <GrainOverlay opacity={0.03} />
                 {children}
                 <SiteDock />
+                <StatusWidget />
             </body>
         </html>
     );
