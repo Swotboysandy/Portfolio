@@ -643,7 +643,7 @@ class InfiniteGridMenu {
         this.viewportSize = vec2.set(this.viewportSize || vec2.create(), this.canvas.clientWidth, this.canvas.clientHeight);
         if (!this.gl) return;
         const gl = this.gl;
-        const needsResize = resizeCanvasToDisplaySize(gl.canvas);
+        const needsResize = resizeCanvasToDisplaySize(gl.canvas as HTMLCanvasElement);
         if (needsResize) {
             gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
         }
@@ -891,7 +891,7 @@ class InfiniteGridMenu {
     }
 
     #updateProjectionMatrix(gl: WebGL2RenderingContext) {
-        this.camera.aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
+        this.camera.aspect = (gl.canvas as HTMLCanvasElement).clientWidth / (gl.canvas as HTMLCanvasElement).clientHeight;
         const height = this.SPHERE_RADIUS * 0.35;
         const distance = this.camera.position[2];
         if (this.camera.aspect > 1) {
