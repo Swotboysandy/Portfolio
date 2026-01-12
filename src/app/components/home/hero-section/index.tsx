@@ -4,7 +4,8 @@ import BlurText from "../../animations/BlurText";
 import FadeContent from "../../animations/FadeContent";
 import ShinyText from "../../animations/ShinyText";
 import { Tooltip } from "@/components/ui/tooltip-card";
-import { IoLogoLinkedin, IoLogoGithub, IoLogoTwitter, IoMailOutline } from "react-icons/io5";
+import { IoLogoLinkedin, IoLogoGithub, IoMailOutline } from "react-icons/io5";
+import { IconBrandX } from "@tabler/icons-react";
 
 const HeroSection = () => {
     const socialLinks = [
@@ -19,9 +20,9 @@ const HeroSection = () => {
             icon: IoLogoGithub,
         },
         {
-            name: "Twitter",
+            name: "X",
             href: "https://x.com/swotboysandy",
-            icon: IoLogoTwitter,
+            icon: IconBrandX,
         },
         {
             name: "Email",
