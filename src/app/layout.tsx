@@ -13,6 +13,9 @@ const inter = Inter({
 export const metadata: Metadata = {
     title: "Sunny Singh | Full Stack Developer",
     description: "Portfolio of Sunny Kishor Singh, a Full Stack Developer specializing in React, Next.js, and React Native",
+    icons: {
+        icon: '/favicon.png',
+    },
 };
 
 export default function RootLayout({
@@ -22,9 +25,6 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning className="dark" style={{ colorScheme: 'dark' }}>
-            <head>
-                <link rel="icon" href="/favicon.png" />
-            </head>
             <body className={inter.className}>
                 <GrainOverlay opacity={0.03} />
                 {children}
