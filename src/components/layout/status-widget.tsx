@@ -10,23 +10,33 @@ export function StatusWidget() {
     useEffect(() => {
         setMounted(true);
 
-        // Simulate a total view count that "persists" slightly
-        // Start with a base of ~8000 and add a random amount
-        const baseCount = 8420;
-        const randomSeed = Math.floor(Math.random() * 50);
-        const storedViews = typeof window !== 'undefined' ? localStorage.getItem('site_views') : null;
+        // Fetch and increment view count
+        const updateViews = async () => {
+            try {
+                // Check if we've already counted this session to avoid spamming increments on refresh
+                const sessionKey = 'session_view_counted';
+                const hasCounted = sessionStorage.getItem(sessionKey);
 
-        let currentViews = storedViews ? parseInt(storedViews) : baseCount + randomSeed;
+                let res;
+                if (!hasCounted) {
+                    // POST increments the count
+                    res = await fetch('/api/views', { method: 'POST' });
+                    sessionStorage.setItem(sessionKey, 'true');
+                } else {
+                    // GET just retrieves the count
+                    res = await fetch('/api/views');
+                }
 
-        // Increment view count for this "session"
-        if (!storedViews) {
-            currentViews += 1;
-            if (typeof window !== 'undefined') {
-                localStorage.setItem('site_views', currentViews.toString());
+                if (res.ok) {
+                    const data = await res.json();
+                    setViewers(data.count);
+                }
+            } catch (error) {
+                console.error("Failed to update views:", error);
             }
-        }
+        };
 
-        setViewers(currentViews);
+        updateViews();
 
         // Update time for India (IST)
         const updateTime = () => {
