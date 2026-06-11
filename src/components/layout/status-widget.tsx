@@ -10,33 +10,22 @@ export function StatusWidget() {
     useEffect(() => {
         setMounted(true);
 
-        // Fetch and increment view count
-        const updateViews = async () => {
+        // The count grows on its own server-side (~12/hour); just read it and
+        // re-poll so an open tab keeps ticking up.
+        const fetchViews = async () => {
             try {
-                // Check if we've already counted this session to avoid spamming increments on refresh
-                const sessionKey = 'session_view_counted';
-                const hasCounted = sessionStorage.getItem(sessionKey);
-
-                let res;
-                if (!hasCounted) {
-                    // POST increments the count
-                    res = await fetch('/api/views', { method: 'POST' });
-                    sessionStorage.setItem(sessionKey, 'true');
-                } else {
-                    // GET just retrieves the count
-                    res = await fetch('/api/views');
-                }
-
+                const res = await fetch('/api/views', { cache: 'no-store' });
                 if (res.ok) {
                     const data = await res.json();
                     setViewers(data.count);
                 }
             } catch (error) {
-                console.error("Failed to update views:", error);
+                console.error("Failed to fetch views:", error);
             }
         };
 
-        updateViews();
+        fetchViews();
+        const viewsInterval = setInterval(fetchViews, 60000);
 
         // Update time for India (IST)
         const updateTime = () => {
@@ -56,6 +45,7 @@ export function StatusWidget() {
 
         return () => {
             clearInterval(clockInterval);
+            clearInterval(viewsInterval);
         };
     }, []);
 
