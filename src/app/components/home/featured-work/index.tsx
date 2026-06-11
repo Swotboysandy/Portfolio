@@ -1,11 +1,17 @@
 "use client";
 import Link from "next/link"
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, ArrowRight } from "lucide-react";
 import FadeContent from "../../animations/FadeContent";
 import TiltedCard from "../../animations/TiltedCard";
 
 const FeaturedWork = () => {
     const projects = [
+        {
+            title: "OliverFlix",
+            description: "Six streaming services and 1,000+ live channels behind one home screen — on-device stream decryption, instant loads, self-updating content.",
+            tech: ["Android", "Scraper", "Crypto"],
+            caseUrl: "/projects/oliverflix"
+        },
         {
             title: "PracandyFlix",
             description: "Netflix-inspired Android streaming app with dark premium UI, Lottie animations, and local caching.",
@@ -73,14 +79,25 @@ const FeaturedWork = () => {
 
                                         {/* Links */}
                                         <div className="flex items-center gap-3 shrink-0">
-                                            <Link
-                                                href={project.repoUrl}
-                                                target="_blank"
-                                                className="flex items-center gap-1 text-xs text-zinc-500 hover:text-white transition-colors"
-                                            >
-                                                <Github className="w-3 h-3" />
-                                                <span>Repo</span>
-                                            </Link>
+                                            {project.caseUrl && (
+                                                <Link
+                                                    href={project.caseUrl}
+                                                    className="flex items-center gap-1 text-xs text-[#a78bfa] hover:underline"
+                                                >
+                                                    <ArrowRight className="w-3 h-3" />
+                                                    <span>Case Study</span>
+                                                </Link>
+                                            )}
+                                            {project.repoUrl && (
+                                                <Link
+                                                    href={project.repoUrl}
+                                                    target="_blank"
+                                                    className="flex items-center gap-1 text-xs text-zinc-500 hover:text-white transition-colors"
+                                                >
+                                                    <Github className="w-3 h-3" />
+                                                    <span>Repo</span>
+                                                </Link>
+                                            )}
                                             {project.liveUrl && (
                                                 <Link
                                                     href={project.liveUrl}
