@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useRef, useState, ReactNode } from "react";
+import { ReactNode } from "react";
+import { motion } from "motion/react";
 
 interface FadeContentProps {
     children: ReactNode;
@@ -9,55 +10,31 @@ interface FadeContentProps {
     direction?: "up" | "down" | "left" | "right";
 }
 
+const OFFSET = {
+    up: { y: 20 },
+    down: { y: -20 },
+    left: { x: 20 },
+    right: { x: -20 },
+} as const;
+
 const FadeContent = ({
     children,
     delay = 0,
     duration = 500,
     className = "",
-    direction = "up"
+    direction = "up",
 }: FadeContentProps) => {
-    const [isVisible, setIsVisible] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
-
-    const getTransform = () => {
-        switch (direction) {
-            case "up": return "translateY(20px)";
-            case "down": return "translateY(-20px)";
-            case "left": return "translateX(20px)";
-            case "right": return "translateX(-20px)";
-        }
-    };
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        if (ref.current) {
-            observer.observe(ref.current);
-        }
-
-        return () => observer.disconnect();
-    }, []);
-
     return (
-        <div
-            ref={ref}
+        <motion.div
             className={className}
-            style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "translate(0)" : getTransform(),
-                transition: `all ${duration}ms ease-out`,
-                transitionDelay: `${delay}ms`,
-            }}
+            initial={{ opacity: 0, ...OFFSET[direction] }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+            // Only opacity + transform animate — both run on the GPU compositor.
+            transition={{ duration: duration / 1000, delay: delay / 1000, ease: [0.22, 1, 0.36, 1] }}
         >
             {children}
-        </div>
+        </motion.div>
     );
 };
 

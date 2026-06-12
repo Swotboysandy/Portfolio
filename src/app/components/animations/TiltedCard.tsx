@@ -1,5 +1,6 @@
 "use client";
-import { ReactNode, useRef, useState } from "react";
+import { ReactNode, useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "motion/react";
 
 interface TiltedCardProps {
     children: ReactNode;
@@ -7,45 +8,47 @@ interface TiltedCardProps {
     tiltAmount?: number;
 }
 
+const SPRING = { stiffness: 260, damping: 22, mass: 0.4 };
+
 const TiltedCard = ({ children, className = "", tiltAmount = 10 }: TiltedCardProps) => {
     const ref = useRef<HTMLDivElement>(null);
-    const [style, setStyle] = useState({
-        transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
-    });
+    const reduce = useReducedMotion();
 
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!ref.current) return;
+    // Normalized pointer position (-0.5 .. 0.5). Driving motion values instead of
+    // React state means tilting never triggers a re-render — the compositor handles it.
+    const px = useMotionValue(0);
+    const py = useMotionValue(0);
 
-        const rect = ref.current.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+    const rotateX = useSpring(useTransform(py, [-0.5, 0.5], [tiltAmount, -tiltAmount]), SPRING);
+    const rotateY = useSpring(useTransform(px, [-0.5, 0.5], [-tiltAmount, tiltAmount]), SPRING);
 
-        const rotateX = ((y - centerY) / centerY) * -tiltAmount;
-        const rotateY = ((x - centerX) / centerX) * tiltAmount;
-
-        setStyle({
-            transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-        });
+    const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        const rect = ref.current?.getBoundingClientRect();
+        if (!rect) return;
+        px.set((e.clientX - rect.left) / rect.width - 0.5);
+        py.set((e.clientY - rect.top) / rect.height - 0.5);
     };
 
-    const handleMouseLeave = () => {
-        setStyle({
-            transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
-        });
+    const reset = () => {
+        px.set(0);
+        py.set(0);
     };
+
+    // No tilt for users who prefer reduced motion (and on touch, mousemove never fires).
+    if (reduce) return <div className={className}>{children}</div>;
 
     return (
-        <div
+        <motion.div
             ref={ref}
-            className={`transition-transform duration-200 ease-out ${className}`}
-            style={style}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
+            className={className}
+            onMouseMove={handleMove}
+            onMouseLeave={reset}
+            style={{ rotateX, rotateY, transformPerspective: 1000 }}
+            whileHover={{ scale: 1.012 }}
+            transition={{ scale: { type: "spring", stiffness: 300, damping: 25 } }}
         >
             {children}
-        </div>
+        </motion.div>
     );
 };
 

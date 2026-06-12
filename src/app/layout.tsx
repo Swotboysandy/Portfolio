@@ -4,6 +4,7 @@ import "./globals.css";
 import GrainOverlay from "./components/animations/GrainOverlay";
 import { SiteDock } from "@/components/layout/site-dock";
 import { StatusWidget } from "@/components/layout/status-widget";
+import { MotionProvider } from "@/components/providers/motion-provider";
 
 const inter = Inter({
     variable: "--font-inter-sans",
@@ -27,9 +28,11 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning className="dark" style={{ colorScheme: 'dark' }}>
             <body className={inter.className}>
                 <GrainOverlay opacity={0.03} />
-                {children}
-                <SiteDock />
-                <StatusWidget />
+                <MotionProvider>
+                    {children}
+                    <SiteDock />
+                    <StatusWidget />
+                </MotionProvider>
             </body>
         </html>
     );

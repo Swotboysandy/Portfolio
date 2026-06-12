@@ -20,6 +20,7 @@ import {
     SiVercel,
     SiRender
 } from "react-icons/si";
+import { motion } from "motion/react";
 import FadeContent from "../../animations/FadeContent";
 
 const AboutMe = () => {
@@ -51,22 +52,29 @@ const AboutMe = () => {
                     <h2 className="text-zinc-500 text-xs uppercase tracking-wider mb-3">Skills & Tools</h2>
                 </FadeContent>
 
-                <FadeContent delay={200}>
-                    <div className="flex flex-wrap gap-1.5">
-                        {skills.map((skill, index) => {
-                            const Icon = skill.icon;
-                            return (
-                                <span
-                                    key={index}
-                                    className="flex items-center gap-1.5 text-xs px-2 py-1 bg-zinc-900/50 border border-zinc-800 rounded text-zinc-400 hover:border-zinc-700 hover:text-white transition-colors"
-                                >
-                                    <Icon className="w-3 h-3" />
-                                    {skill.name}
-                                </span>
-                            );
-                        })}
-                    </div>
-                </FadeContent>
+                <motion.div
+                    className="flex flex-wrap gap-1.5"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+                    variants={{ visible: { transition: { staggerChildren: 0.03, delayChildren: 0.15 } } }}
+                >
+                    {skills.map((skill, index) => {
+                        const Icon = skill.icon;
+                        return (
+                            <motion.span
+                                key={index}
+                                variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } }}
+                                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                                whileHover={{ y: -2 }}
+                                className="flex items-center gap-1.5 text-xs px-2 py-1 bg-zinc-900/50 border border-zinc-800 rounded text-zinc-400 hover:border-zinc-700 hover:text-white transition-colors cursor-default"
+                            >
+                                <Icon className="w-3 h-3" />
+                                {skill.name}
+                            </motion.span>
+                        );
+                    })}
+                </motion.div>
             </div>
         </section>
     )

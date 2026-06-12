@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 interface BlurTextProps {
     text: string;
@@ -8,33 +8,34 @@ interface BlurTextProps {
 }
 
 const BlurText = ({ text, delay = 100, className = "" }: BlurTextProps) => {
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const timer = setTimeout(() => setIsVisible(true), 100);
-        return () => clearTimeout(timer);
-    }, []);
-
     const words = text.split(" ");
 
     return (
-        <span className={className} style={{ display: 'inline' }}>
+        <motion.span
+            className={className}
+            style={{ display: "inline" }}
+            initial="hidden"
+            animate="visible"
+            variants={{
+                hidden: {},
+                visible: { transition: { delayChildren: 0.1, staggerChildren: delay / 1000 } },
+            }}
+        >
             {words.map((word, index) => (
-                <span
+                <motion.span
                     key={index}
-                    style={{
-                        display: 'inline-block',
-                        opacity: isVisible ? 1 : 0,
-                        filter: isVisible ? "blur(0px)" : "blur(8px)",
-                        transform: isVisible ? "translateY(0)" : "translateY(8px)",
-                        transition: 'all 0.5s ease-out',
-                        transitionDelay: `${index * delay}ms`,
+                    style={{ display: "inline-block", willChange: "transform, filter, opacity" }}
+                    variants={{
+                        hidden: { opacity: 0, y: 8, filter: "blur(8px)" },
+                        visible: { opacity: 1, y: 0, filter: "blur(0px)" },
                     }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
                 >
-                    {word}{index < words.length - 1 ? '\u00A0' : ''}
-                </span>
+                    {word}
+                    {index < words.length - 1 ? " " : ""}
+                </motion.span>
             ))}
-        </span>
+        </motion.span>
     );
 };
 
