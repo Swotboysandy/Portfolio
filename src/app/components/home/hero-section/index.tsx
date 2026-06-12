@@ -53,36 +53,62 @@ const HeroSection = () => {
     };
 
     return (
-        <section className="pt-20 sm:pt-24">
+        <section className="pt-24 sm:pt-28">
             <div className="max-w-2xl mx-auto px-5 sm:px-7">
-                {/* Name and Title */}
-                <div className="mb-6">
-                    <h1 className="text-3xl sm:text-4xl font-semibold text-white mb-2">
-                        <BlurText text="Sunny Kishor Singh" delay={80} />
-                    </h1>
-                    <FadeContent delay={400}>
-                        <p className="text-base"><ShinyText color="white">Full Stack Developer</ShinyText></p>
-                    </FadeContent>
-                </div>
+                {/* Availability */}
+                <FadeContent>
+                    <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/[0.07] px-3 py-1 mb-6">
+                        <span className="relative flex h-2 w-2">
+                            <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-50 animate-ping" />
+                            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                        </span>
+                        <span className="text-xs font-medium text-emerald-300/90">Available for work</span>
+                    </div>
+                </FadeContent>
 
-                {/* Bio Paragraphs */}
-                <FadeContent delay={600} className="space-y-4 text-zinc-400 leading-relaxed mb-8">
+                {/* Name */}
+                <h1 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight mb-3">
+                    <BlurText text="Sunny Kishor Singh" delay={70} />
+                </h1>
+
+                {/* Role + location */}
+                <FadeContent delay={300}>
+                    <p className="text-base text-zinc-500 mb-7">
+                        <ShinyText color="white" className="font-medium">Full Stack Developer</ShinyText>
+                        <span className="mx-1.5 text-zinc-700">·</span>
+                        Based in India
+                    </p>
+                </FadeContent>
+
+                {/* Tagline */}
+                <FadeContent delay={420}>
+                    <p className="text-xl sm:text-2xl font-light leading-snug text-zinc-200 text-balance mb-7">
+                        I build full-stack web &amp; mobile apps that{" "}
+                        <span className="font-normal text-white">look good</span>,{" "}
+                        <span className="font-normal text-white">perform well</span>, and{" "}
+                        <span className="font-normal text-white">solve real problems</span>.
+                    </p>
+                </FadeContent>
+
+                {/* Bio */}
+                <FadeContent delay={560} className="space-y-4 text-[15px] text-zinc-400 leading-relaxed mb-8">
                     <div>
-                        I build full-stack web and mobile applications. Passionate about creating projects that make a real-world impact with clean code and exceptional user experience.
+                        Currently leading frontend at{" "}
+                        <Link href="https://draftss.com" target="_blank" className="hover:underline">
+                            <ShinyText color="white" className="font-semibold">DraftssTech</ShinyText>
+                        </Link>
+                        , shipping high-performance, visually polished sites with <Highlight>React</Highlight>,{" "}
+                        <Highlight>Next.js</Highlight>, and <Highlight>WordPress</Highlight>.
                     </div>
                     <div>
-                        Currently leading frontend projects at <Link href="https://draftss.com" target="_blank" className="hover:underline"><ShinyText color="white" className="font-semibold">DraftssTech</ShinyText></Link>, building high-performance, visually stunning websites using <Highlight>React</Highlight>, <Highlight>Next.js</Highlight>, and <Highlight>WordPress</Highlight>.
-                    </div>
-                    <div>
-                        I work with <Highlight>React Native</Highlight>, <Highlight>Node.js</Highlight>, and <Highlight>Python</Highlight> most days, using <Highlight>TypeScript</Highlight> for type safety. I enjoy building things that look good, perform well, and help solve real problems.
-                    </div>
-                    <div>
-                        Open to collaborations and opportunities. Feel free to reach out!
+                        Most days I&rsquo;m deep in <Highlight>React Native</Highlight>, <Highlight>Node.js</Highlight>, and{" "}
+                        <Highlight>Python</Highlight>, with <Highlight>TypeScript</Highlight> keeping me honest. Open to
+                        collaborations and new opportunities — feel free to reach out.
                     </div>
                 </FadeContent>
 
                 {/* Social Links */}
-                <FadeContent delay={800}>
+                <FadeContent delay={700}>
                     <div className="flex flex-wrap gap-2">
                         {socialLinks.map((link, index) => {
                             const Icon = link.icon;
@@ -91,9 +117,9 @@ const HeroSection = () => {
                                     key={index}
                                     href={link.href}
                                     target="_blank"
-                                    className="flex items-center gap-1.5 text-xs px-3 py-1.5 bg-zinc-900/50 border border-zinc-800 rounded text-zinc-400 hover:border-zinc-700 hover:text-white transition-all duration-200"
+                                    className="group inline-flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900/40 px-3.5 py-2 text-sm text-zinc-400 transition-colors hover:border-zinc-700 hover:text-white"
                                 >
-                                    <Icon className="w-3.5 h-3.5" />
+                                    <Icon className="h-4 w-4 text-zinc-500 transition-colors group-hover:text-[#a78bfa]" />
                                     {link.name}
                                 </Link>
                             );

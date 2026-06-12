@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Github, ExternalLink, ArrowLeft, ArrowRight } from "lucide-react";
 import FadeContent from "../components/animations/FadeContent";
 import TiltedCard from "../components/animations/TiltedCard";
+import SectionLabel from "../components/section-label";
 import InfiniteMenu from "@/components/ui/infinite-menu";
 
 const ProjectsPage = () => {
@@ -12,6 +13,12 @@ const ProjectsPage = () => {
             description: "Six streaming services, 1,000+ live channels, and a nostalgia vault behind one home screen — with on-device stream decryption and self-updating content.",
             tech: ["Android", "Scraper", "On-device crypto"],
             caseUrl: "/projects/oliverflix"
+        },
+        {
+            title: "Instalaz",
+            description: "A social media scheduling & automation tool — an AI composer drafts posts per platform, one calendar fills your slots, and a background queue auto-publishes across Instagram, Facebook, YouTube, Reddit and more.",
+            tech: ["Next.js", "PostgreSQL", "Redis Queue", "AI"],
+            caseUrl: "/projects/instalaz"
         },
         {
             title: "PracandyFlix",
@@ -49,31 +56,35 @@ const ProjectsPage = () => {
     ];
 
     return (
-        <main className="min-h-screen pt-20 pb-12">
+        <main className="min-h-screen pt-24 pb-32">
             <div className="max-w-2xl mx-auto px-5 sm:px-7">
                 {/* Header */}
                 <FadeContent>
-                    <div className="mb-8">
+                    <div className="mb-10">
                         <Link
                             href="/"
-                            className="inline-flex items-center gap-2 text-zinc-500 hover:text-white transition-colors mb-4 text-sm"
+                            className="mb-6 inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-white"
                         >
-                            <ArrowLeft className="w-4 h-4" />
-                            Back to Home
+                            <ArrowLeft className="h-4 w-4" />
+                            Back to home
                         </Link>
-                        <h1 className="text-3xl font-semibold text-white mb-2">My Projects</h1>
-                        <p className="text-zinc-400">
-                            A showcase of my recent work, side projects, and open source contributions.
+                        <SectionLabel>Projects</SectionLabel>
+                        <h1 className="mb-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                            Things I&rsquo;ve built
+                        </h1>
+                        <p className="text-balance text-[15px] leading-relaxed text-zinc-400">
+                            A mix of shipped products, late-night experiments, and open-source side quests — from
+                            streaming apps to real-time collaboration tools.
                         </p>
                     </div>
                 </FadeContent>
 
                 {/* Projects List */}
-                <div className="space-y-4">
+                <div className="space-y-3">
                     {projects.map((project, index) => (
                         <FadeContent key={index} delay={index * 100}>
                             <TiltedCard tiltAmount={3}>
-                                <div className="group border border-zinc-800 rounded-lg px-5 py-4 hover:border-zinc-700 transition-all bg-zinc-900/20">
+                                <div className="group rounded-xl border border-zinc-800 bg-zinc-900/30 px-5 py-4 transition-colors hover:border-zinc-700">
                                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                                         <div className="flex-1">
                                             <div className="flex items-center gap-2 mb-2">
@@ -134,8 +145,8 @@ const ProjectsPage = () => {
 
                 {/* 3D & Creative Works */}
                 <FadeContent delay={500}>
-                    <div className="mt-8">
-                        <h2 className="text-2xl font-semibold text-white mb-4">3D & Creative Works</h2>
+                    <div className="mt-14">
+                        <SectionLabel>3D &amp; Creative</SectionLabel>
                         <div className="relative h-[600px] w-full overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/10">
                             <InfiniteMenu
                                 items={[
@@ -160,17 +171,17 @@ const ProjectsPage = () => {
 
                 {/* GitHub CTA */}
                 <FadeContent delay={600}>
-                    <div className="mt-12 text-center border-t border-zinc-800 pt-8">
-                        <p className="text-zinc-500 text-sm mb-4">
-                            Want to see more? Check out my GitHub profile for other experiments and code snippets.
+                    <div className="mt-14 border-t border-zinc-800/80 pt-8 text-center">
+                        <p className="mb-4 text-sm text-zinc-500">
+                            More experiments and code snippets live on my GitHub.
                         </p>
                         <Link
                             href="https://github.com/Swotboysandy?tab=repositories"
                             target="_blank"
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 text-zinc-300 rounded-lg hover:bg-zinc-800 hover:text-white transition-colors text-sm border border-zinc-800"
+                            className="inline-flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/40 px-4 py-2.5 text-sm text-zinc-300 transition-colors hover:border-zinc-700 hover:bg-zinc-900 hover:text-white"
                         >
-                            <Github className="w-4 h-4" />
-                            View GitHub Profile
+                            <Github className="h-4 w-4" />
+                            View GitHub profile
                         </Link>
                     </div>
                 </FadeContent>

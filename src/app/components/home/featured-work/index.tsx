@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Github, ExternalLink, ArrowRight } from "lucide-react";
 import FadeContent from "../../animations/FadeContent";
 import TiltedCard from "../../animations/TiltedCard";
+import SectionLabel from "../../section-label";
 
 const FeaturedWork = () => {
     const projects = [
@@ -11,6 +12,12 @@ const FeaturedWork = () => {
             description: "Six streaming services and 1,000+ live channels behind one home screen — on-device stream decryption, instant loads, self-updating content.",
             tech: ["Android", "Scraper", "Crypto"],
             caseUrl: "/projects/oliverflix"
+        },
+        {
+            title: "Instalaz",
+            description: "A social media scheduler — compose once with AI and auto-publish across Instagram, Facebook, YouTube, Reddit and more from one calendar.",
+            tech: ["Next.js", "PostgreSQL", "AI"],
+            caseUrl: "/projects/instalaz"
         },
         {
             title: "PracandyFlix",
@@ -47,17 +54,17 @@ const FeaturedWork = () => {
     ];
 
     return (
-        <section className="py-8">
+        <section className="py-10">
             <div className="max-w-2xl mx-auto px-5 sm:px-7">
                 <FadeContent>
-                    <h2 className="text-zinc-500 text-xs uppercase tracking-wider mb-4">Projects</h2>
+                    <SectionLabel>Selected Work</SectionLabel>
                 </FadeContent>
 
                 <div className="space-y-3">
                     {projects.map((project, index) => (
                         <FadeContent key={index} delay={index * 100}>
                             <TiltedCard tiltAmount={5}>
-                                <div className="group border border-zinc-800 rounded-lg px-4 py-3 hover:border-zinc-700 transition-all bg-zinc-900/20">
+                                <div className="group rounded-xl border border-zinc-800 bg-zinc-900/30 px-4 py-3.5 transition-colors hover:border-zinc-700">
                                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
                                         <div className="flex-1">
                                             <div className="flex items-center gap-2 mb-1">
@@ -120,9 +127,9 @@ const FeaturedWork = () => {
                 <FadeContent delay={500}>
                     <Link
                         href="/projects"
-                        className="block w-full text-center mt-4 py-2 border border-zinc-800 rounded-lg text-xs text-zinc-500 hover:text-white hover:border-zinc-700 transition-all"
+                        className="mt-5 block w-full rounded-xl border border-zinc-800 py-2.5 text-center text-xs font-medium tracking-wide text-zinc-500 transition-colors hover:border-zinc-700 hover:text-white"
                     >
-                        More Projects →
+                        View all projects →
                     </Link>
                 </FadeContent>
             </div>

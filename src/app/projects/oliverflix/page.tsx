@@ -80,7 +80,7 @@ const Story = ({
 
 const OliverFlixPage = () => {
     return (
-        <main className="min-h-screen pt-20 pb-16">
+        <main className="min-h-screen pt-24 pb-32">
             <div className="max-w-2xl mx-auto px-5 sm:px-7">
                 {/* Back */}
                 <FadeContent>
@@ -143,7 +143,7 @@ const OliverFlixPage = () => {
                         {stats.map((s, i) => (
                             <div
                                 key={i}
-                                className="rounded-xl border border-zinc-800 bg-zinc-900/20 px-4 py-3.5"
+                                className="rounded-xl border border-zinc-800 bg-zinc-900/30 px-4 py-3.5"
                             >
                                 <div className="text-[#c4b5fd] text-lg sm:text-xl font-semibold tracking-tight">
                                     {s.value}
@@ -182,7 +182,7 @@ const OliverFlixPage = () => {
                             and turn the messy answer into clean rows my app could render — Trending, Action, Top 10,
                             the works.
                         </p>
-                        <div className="flex gap-3 rounded-xl border border-zinc-800 bg-zinc-900/20 p-4">
+                        <div className="flex gap-3 rounded-xl border border-zinc-800 bg-zinc-900/30 p-4">
                             <Cookie className="w-5 h-5 text-[#a78bfa] shrink-0 mt-0.5" />
                             <p className="text-zinc-400 text-sm leading-relaxed">
                                 The catch: these places don&rsquo;t just let you walk in — every knock needs valid
@@ -234,7 +234,7 @@ const OliverFlixPage = () => {
                                 {streamSteps.map((step, i) => (
                                     <div
                                         key={i}
-                                        className="relative flex gap-4 rounded-xl border border-zinc-800 bg-zinc-900/20 px-4 py-3.5 hover:border-[#a78bfa]/30 transition-colors"
+                                        className="relative flex gap-4 rounded-xl border border-zinc-800 bg-zinc-900/30 px-4 py-3.5 hover:border-[#a78bfa]/30 transition-colors"
                                     >
                                         <span className="font-mono text-[#a78bfa]/80 text-sm font-semibold pt-0.5 w-7 shrink-0">
                                             {step.n}

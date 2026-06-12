@@ -15,12 +15,20 @@ const Page = () => {
       <AboutMe />
       <Education />
 
-      {/* Footer */}
-      <footer className="py-12 border-t border-zinc-800">
-        <div className="max-w-2xl mx-auto px-5 sm:px-7 text-center">
-          <p className="text-zinc-500 text-sm inline-flex items-center gap-1.5">
-            © 2025 Sunny Kishor Singh. Crafted with <IoHeart className="w-4 h-4 text-zinc-400" />
-          </p>
+      {/* Footer — extra bottom padding so the floating dock never overlaps the text */}
+      <footer className="mt-6 border-t border-zinc-800/80 pt-12 pb-36">
+        <div className="max-w-2xl mx-auto px-5 sm:px-7">
+          <div className="flex flex-col items-center gap-3 text-center">
+            <p className="text-sm text-zinc-400">
+              Let&rsquo;s build something together —{" "}
+              <a href="mailto:sunnysinghchauhan760@gmail.com" className="font-medium text-[#a78bfa] hover:underline">
+                get in touch
+              </a>
+            </p>
+            <p className="inline-flex items-center gap-1.5 text-xs text-zinc-600">
+              © 2025 Sunny Kishor Singh · built with <IoHeart className="h-3.5 w-3.5 text-zinc-500" /> &amp; Next.js
+            </p>
+          </div>
         </div>
       </footer>
     </main>
