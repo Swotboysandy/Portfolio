@@ -1,13 +1,20 @@
 "use client";
 import Link from "next/link";
-import BlurText from "../../animations/BlurText";
-import FadeContent from "../../animations/FadeContent";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import ShinyText from "../../animations/ShinyText";
+import { Magnetic } from "@/components/ui/magnetic";
 import { Tooltip } from "@/components/ui/tooltip-card";
 import { IoLogoLinkedin, IoLogoGithub, IoMailOutline } from "react-icons/io5";
 import { IconBrandX } from "@tabler/icons-react";
 
 const HeroSection = () => {
+    const heroRef = useRef<HTMLElement>(null);
+    // Scroll-linked parallax: the hero drifts up and fades as it leaves the viewport.
+    const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+    const y = useTransform(scrollYProgress, [0, 1], [0, -70]);
+    const opacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
+
     const socialLinks = [
         {
             name: "LinkedIn",
@@ -53,45 +60,39 @@ const HeroSection = () => {
     };
 
     return (
-        <section className="pt-24 sm:pt-28">
-            <div className="max-w-2xl mx-auto px-5 sm:px-7">
+        <section ref={heroRef} className="pt-24 sm:pt-28">
+            <motion.div style={{ y, opacity }} className="max-w-2xl mx-auto px-5 sm:px-7">
                 {/* Availability */}
-                <FadeContent>
-                    <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/[0.07] px-3 py-1 mb-6">
-                        <span className="relative flex h-2 w-2">
-                            <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-50 animate-ping" />
-                            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-                        </span>
-                        <span className="text-xs font-medium text-emerald-300/90">Available for work</span>
-                    </div>
-                </FadeContent>
+                <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/[0.07] px-3 py-1 mb-6">
+                    <span className="relative flex h-2 w-2">
+                        <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-50 animate-ping" />
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                    </span>
+                    <span className="text-xs font-medium text-emerald-300/90">Available for work</span>
+                </div>
 
                 {/* Name */}
                 <h1 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight mb-3">
-                    <BlurText text="Sunny Kishor Singh" delay={70} />
+                    Sunny Kishor Singh
                 </h1>
 
                 {/* Role + location */}
-                <FadeContent delay={300}>
-                    <p className="text-base text-zinc-500 mb-7">
-                        <ShinyText color="white" className="font-medium">Full Stack Developer</ShinyText>
-                        <span className="mx-1.5 text-zinc-700">·</span>
-                        Based in India
-                    </p>
-                </FadeContent>
+                <p className="text-base text-zinc-400 mb-7">
+                    <ShinyText color="white" className="font-medium">Full Stack Developer</ShinyText>
+                    <span className="mx-1.5 text-zinc-600">·</span>
+                    Based in India
+                </p>
 
                 {/* Tagline */}
-                <FadeContent delay={420}>
-                    <p className="text-xl sm:text-2xl font-light leading-snug text-zinc-200 text-balance mb-7">
-                        I build full-stack web &amp; mobile apps that{" "}
-                        <span className="font-normal text-white">look good</span>,{" "}
-                        <span className="font-normal text-white">perform well</span>, and{" "}
-                        <span className="font-normal text-white">solve real problems</span>.
-                    </p>
-                </FadeContent>
+                <p className="text-xl sm:text-2xl font-light leading-snug text-zinc-200 text-balance mb-7">
+                    I build full-stack web &amp; mobile apps that{" "}
+                    <span className="font-normal text-white">look good</span>,{" "}
+                    <span className="font-normal text-white">perform well</span>, and{" "}
+                    <span className="font-normal text-white">solve real problems</span>.
+                </p>
 
                 {/* Bio */}
-                <FadeContent delay={560} className="space-y-4 text-[15px] text-zinc-400 leading-relaxed mb-8">
+                <div className="space-y-4 text-[15px] text-zinc-400 leading-relaxed mb-8">
                     <div>
                         Currently leading frontend at{" "}
                         <Link href="https://draftss.com" target="_blank" className="hover:underline">
@@ -105,16 +106,15 @@ const HeroSection = () => {
                         <Highlight>Python</Highlight>, with <Highlight>TypeScript</Highlight> keeping me honest. Open to
                         collaborations and new opportunities — feel free to reach out.
                     </div>
-                </FadeContent>
+                </div>
 
                 {/* Social Links */}
-                <FadeContent delay={700}>
-                    <div className="flex flex-wrap gap-2">
-                        {socialLinks.map((link, index) => {
-                            const Icon = link.icon;
-                            return (
+                <div className="flex flex-wrap gap-2">
+                    {socialLinks.map((link, index) => {
+                        const Icon = link.icon;
+                        return (
+                            <Magnetic key={index} strength={0.4}>
                                 <Link
-                                    key={index}
                                     href={link.href}
                                     target="_blank"
                                     className="group inline-flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900/40 px-3.5 py-2 text-sm text-zinc-400 transition-colors hover:border-zinc-700 hover:text-white"
@@ -122,11 +122,11 @@ const HeroSection = () => {
                                     <Icon className="h-4 w-4 text-zinc-500 transition-colors group-hover:text-[#a78bfa]" />
                                     {link.name}
                                 </Link>
-                            );
-                        })}
-                    </div>
-                </FadeContent>
-            </div>
+                            </Magnetic>
+                        );
+                    })}
+                </div>
+            </motion.div>
         </section>
     )
 }

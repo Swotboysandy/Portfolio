@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import FadeContent from "../../animations/FadeContent";
 import SectionLabel from "../../section-label";
 
 const Experience = () => {
@@ -43,57 +42,53 @@ const Experience = () => {
     return (
         <section className="py-10">
             <div className="max-w-2xl mx-auto px-5 sm:px-7">
-                <FadeContent>
-                    <SectionLabel>Experience</SectionLabel>
-                </FadeContent>
+                <SectionLabel>Experience</SectionLabel>
 
                 <div className="space-y-3">
                     {experienceData.map((exp, index) => (
-                        <FadeContent key={index} delay={index * 100}>
-                            <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/30 transition-colors hover:border-zinc-700">
-                                {/* Header */}
-                                <div className="px-4 py-3">
-                                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                                        <h3 className="text-white text-sm font-medium">{exp.role}</h3>
-                                        <div className="flex items-center gap-2 text-xs text-zinc-500">
-                                            {exp.isPresent && (
-                                                <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-                                            )}
-                                            <span>{exp.startDate} – {exp.endDate}</span>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center gap-2 text-zinc-500 text-xs mt-1">
-                                        {exp.companyUrl ? (
-                                            <a href={exp.companyUrl} target="_blank" className="hover:text-[#a78bfa] transition-colors">
-                                                {exp.company}
-                                            </a>
-                                        ) : (
-                                            <span>{exp.company}</span>
+                        <div key={index} className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/30 transition-colors hover:border-zinc-700">
+                            {/* Header */}
+                            <div className="px-4 py-3.5">
+                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                                    <h3 className="text-white text-[15px] font-medium">{exp.role}</h3>
+                                    <div className="flex items-center gap-2 text-xs text-zinc-400">
+                                        {exp.isPresent && (
+                                            <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
                                         )}
-                                        <span className="text-zinc-700">·</span>
-                                        <span>{exp.location}</span>
+                                        <span>{exp.startDate} – {exp.endDate}</span>
                                     </div>
                                 </div>
-
-                                {/* Know More Button */}
-                                <button
-                                    onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                                    className="w-full px-4 py-1.5 border-t border-zinc-800 flex items-center justify-between text-xs text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/50 transition-all"
-                                >
-                                    <span>{expandedIndex === index ? 'Less' : 'More'}</span>
-                                    <ChevronDown
-                                        className={`w-3 h-3 transition-transform duration-200 ${expandedIndex === index ? 'rotate-180' : ''}`}
-                                    />
-                                </button>
-
-                                {/* Expandable Summary */}
-                                <div className={`overflow-hidden transition-all duration-300 ${expandedIndex === index ? 'max-h-40' : 'max-h-0'}`}>
-                                    <p className="px-4 pb-3 pt-2 text-xs text-zinc-400 leading-relaxed">
-                                        {exp.summary}
-                                    </p>
+                                <div className="flex items-center gap-2 text-zinc-400 text-[13px] mt-1">
+                                    {exp.companyUrl ? (
+                                        <a href={exp.companyUrl} target="_blank" className="hover:text-[#a78bfa] transition-colors">
+                                            {exp.company}
+                                        </a>
+                                    ) : (
+                                        <span>{exp.company}</span>
+                                    )}
+                                    <span className="text-zinc-700">·</span>
+                                    <span>{exp.location}</span>
                                 </div>
                             </div>
-                        </FadeContent>
+
+                            {/* Know More Button */}
+                            <button
+                                onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+                                className="w-full px-4 py-2 border-t border-zinc-800 flex items-center justify-between text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900/50 transition-all"
+                            >
+                                <span>{expandedIndex === index ? 'Show less' : 'Read more'}</span>
+                                <ChevronDown
+                                    className={`w-3.5 h-3.5 transition-transform duration-200 ${expandedIndex === index ? 'rotate-180' : ''}`}
+                                />
+                            </button>
+
+                            {/* Expandable Summary */}
+                            <div className={`overflow-hidden transition-all duration-300 ${expandedIndex === index ? 'max-h-60' : 'max-h-0'}`}>
+                                <p className="px-4 pb-4 pt-2 text-sm text-zinc-400 leading-relaxed">
+                                    {exp.summary}
+                                </p>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>

@@ -25,8 +25,8 @@ const Page = () => {
                 get in touch
               </a>
             </p>
-            <p className="inline-flex items-center gap-1.5 text-xs text-zinc-600">
-              © 2025 Sunny Kishor Singh · built with <IoHeart className="h-3.5 w-3.5 text-zinc-500" /> &amp; Next.js
+            <p className="inline-flex items-center gap-1.5 text-xs text-zinc-500">
+              © 2025 Sunny Kishor Singh · built with <IoHeart className="h-3.5 w-3.5 text-rose-400/70" /> &amp; Next.js
             </p>
           </div>
         </div>

@@ -45,6 +45,7 @@ const TiltedCard = ({ children, className = "", tiltAmount = 10 }: TiltedCardPro
             onMouseLeave={reset}
             style={{ rotateX, rotateY, transformPerspective: 1000 }}
             whileHover={{ scale: 1.012 }}
+            whileTap={{ scale: 0.99 }}
             transition={{ scale: { type: "spring", stiffness: 300, damping: 25 } }}
         >
             {children}

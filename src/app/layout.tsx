@@ -5,6 +5,7 @@ import GrainOverlay from "./components/animations/GrainOverlay";
 import { SiteDock } from "@/components/layout/site-dock";
 import { StatusWidget } from "@/components/layout/status-widget";
 import { MotionProvider } from "@/components/providers/motion-provider";
+import { SmoothScroll } from "@/components/providers/smooth-scroll";
 
 const inter = Inter({
     variable: "--font-inter-sans",
@@ -29,9 +30,11 @@ export default function RootLayout({
             <body className={inter.className}>
                 <GrainOverlay opacity={0.03} />
                 <MotionProvider>
-                    {children}
-                    <SiteDock />
-                    <StatusWidget />
+                    <SmoothScroll>
+                        {children}
+                        <SiteDock />
+                        <StatusWidget />
+                    </SmoothScroll>
                 </MotionProvider>
             </body>
         </html>

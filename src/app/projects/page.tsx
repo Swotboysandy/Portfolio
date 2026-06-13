@@ -21,12 +21,6 @@ const ProjectsPage = () => {
             caseUrl: "/projects/instalaz"
         },
         {
-            title: "PracandyFlix",
-            description: "Netflix-inspired Android streaming app with dark premium UI, Lottie animations, and local caching.",
-            tech: ["Kotlin", "Android", "Lottie"],
-            repoUrl: "https://github.com/Swotboysandy/pracandyflix"
-        },
-        {
             title: "YoYoMusic",
             description: "Real-time music room with live sync, voting system, and collaborative playback using WebSockets.",
             tech: ["Node.js", "WebSockets", "JavaScript"],
