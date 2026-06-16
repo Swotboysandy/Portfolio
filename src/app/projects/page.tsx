@@ -141,7 +141,7 @@ const ProjectsPage = () => {
                 <FadeContent delay={500}>
                     <div className="mt-14">
                         <SectionLabel>3D &amp; Creative</SectionLabel>
-                        <div className="relative h-[600px] w-full overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/10">
+                        <div className="relative h-[600px] w-full overflow-hidden rounded-xl border border-zinc-800">
                             <InfiniteMenu
                                 items={[
                                     { image: '/3d-projects/House Ad.png', link: '#', title: 'Modern Villa', description: 'Real estate visualization' },

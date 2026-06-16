@@ -14,7 +14,7 @@ const ShinyText = ({
     color = "violet",
     speed = 3
 }: ShinyTextProps) => {
-    const baseColor = color === 'white' ? '#a1a1aa' : '#a78bfa';
+    const baseColor = color === 'white' ? '#e2e8f0' : '#a78bfa';
     const shineColor = color === 'white' ? '#ffffff' : '#e9d5ff';
 
     return (
@@ -30,16 +30,6 @@ const ShinyText = ({
             }}
         >
             {children}
-            <style jsx global>{`
-                @keyframes shiny-text {
-                    0% {
-                        background-position: 100% center;
-                    }
-                    100% {
-                        background-position: -100% center;
-                    }
-                }
-            `}</style>
         </span>
     );
 };

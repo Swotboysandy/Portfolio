@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import GrainOverlay from "./components/animations/GrainOverlay";
-import { SiteDock } from "@/components/layout/site-dock";
-import { StatusWidget } from "@/components/layout/status-widget";
 import { MotionProvider } from "@/components/providers/motion-provider";
 import { SmoothScroll } from "@/components/providers/smooth-scroll";
 
 const inter = Inter({
     variable: "--font-inter-sans",
     subsets: ["latin"],
+});
+
+const instrumentSerif = Instrument_Serif({
+    weight: "400",
+    style: "italic",
+    subsets: ["latin"],
+    variable: "--font-serif",
 });
 
 export const metadata: Metadata = {
@@ -27,13 +32,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning className="dark" style={{ colorScheme: 'dark' }}>
-            <body className={inter.className}>
+            <body className={`${inter.className} ${instrumentSerif.variable}`}>
                 <GrainOverlay opacity={0.03} />
+                <div aria-hidden className="bg-canvas" />
                 <MotionProvider>
                     <SmoothScroll>
-                        {children}
-                        <SiteDock />
-                        <StatusWidget />
+                        <div className="relative z-10">{children}</div>
                     </SmoothScroll>
                 </MotionProvider>
             </body>
