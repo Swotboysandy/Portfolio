@@ -46,19 +46,19 @@ const Experience = () => {
 
                 <div className="space-y-3">
                     {experienceData.map((exp, index) => (
-                        <div key={index} className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/30 transition-colors hover:border-zinc-700">
+                        <div key={index} className="overflow-hidden rounded-xl border border-neutral-300/70 dark:border-zinc-800 bg-white/40 dark:bg-zinc-900/30 transition-colors hover:border-neutral-400 dark:hover:border-zinc-700">
                             {/* Header */}
                             <div className="px-4 py-3.5">
                                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                                    <h3 className="text-white text-[15px] font-medium">{exp.role}</h3>
-                                    <div className="flex items-center gap-2 text-xs text-zinc-400">
+                                    <h3 className="text-neutral-900 dark:text-white text-[15px] font-medium">{exp.role}</h3>
+                                    <div className="flex items-center gap-2 text-xs text-neutral-500 dark:text-zinc-400">
                                         {exp.isPresent && (
                                             <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
                                         )}
                                         <span>{exp.startDate} – {exp.endDate}</span>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-2 text-zinc-400 text-[13px] mt-1">
+                                <div className="flex items-center gap-2 text-neutral-500 dark:text-zinc-400 text-[13px] mt-1">
                                     {exp.companyUrl ? (
                                         <a href={exp.companyUrl} target="_blank" className="hover:text-[#a78bfa] transition-colors">
                                             {exp.company}
@@ -66,7 +66,7 @@ const Experience = () => {
                                     ) : (
                                         <span>{exp.company}</span>
                                     )}
-                                    <span className="text-zinc-700">·</span>
+                                    <span className="text-neutral-300 dark:text-zinc-700">·</span>
                                     <span>{exp.location}</span>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@ const Experience = () => {
                             {/* Know More Button */}
                             <button
                                 onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                                className="w-full px-4 py-2 border-t border-zinc-800 flex items-center justify-between text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900/50 transition-all"
+                                className="w-full px-4 py-2 border-t border-neutral-300/70 dark:border-zinc-800 flex items-center justify-between text-xs font-medium text-neutral-500 dark:text-zinc-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100/60 dark:hover:bg-zinc-900/50 transition-all"
                             >
                                 <span>{expandedIndex === index ? 'Show less' : 'Read more'}</span>
                                 <ChevronDown
@@ -84,7 +84,7 @@ const Experience = () => {
 
                             {/* Expandable Summary */}
                             <div className={`overflow-hidden transition-all duration-300 ${expandedIndex === index ? 'max-h-60' : 'max-h-0'}`}>
-                                <p className="px-4 pb-4 pt-2 text-sm text-zinc-400 leading-relaxed">
+                                <p className="px-4 pb-4 pt-2 text-sm text-neutral-600 dark:text-zinc-400 leading-relaxed">
                                     {exp.summary}
                                 </p>
                             </div>

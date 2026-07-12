@@ -134,10 +134,10 @@ body {
 
 :root {
   --radius: 0.625rem;
-  /* corner-blob backdrop — light theme, warm beige/cream palette */
-  --bg: #f6f0e4;
-  --blob-1: rgba(201, 164, 108, 0.35);
-  --blob-2: rgba(224, 196, 150, 0.28);
+  /* corner-blob backdrop — light theme, warm orange + beige palette */
+  --bg: #f7ede0;
+  --blob-1: rgba(224, 120, 60, 0.32);
+  --blob-2: rgba(232, 200, 150, 0.32);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);

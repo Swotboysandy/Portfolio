@@ -57,16 +57,16 @@ const ProjectsPage = () => {
                     <div className="mb-10">
                         <Link
                             href="/"
-                            className="mb-6 inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-white"
+                            className="mb-6 inline-flex items-center gap-2 text-sm text-neutral-500 dark:text-zinc-500 transition-colors hover:text-neutral-900 dark:hover:text-white"
                         >
                             <ArrowLeft className="h-4 w-4" />
                             Back to home
                         </Link>
                         <SectionLabel>Projects</SectionLabel>
-                        <h1 className="mb-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                        <h1 className="mb-3 text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white sm:text-4xl">
                             Things I&rsquo;ve built
                         </h1>
-                        <p className="text-balance text-[15px] leading-relaxed text-zinc-400">
+                        <p className="text-balance text-[15px] leading-relaxed text-neutral-600 dark:text-zinc-400">
                             A mix of shipped products, late-night experiments, and open-source side quests — from
                             streaming apps to real-time collaboration tools.
                         </p>
@@ -78,22 +78,22 @@ const ProjectsPage = () => {
                     {projects.map((project, index) => (
                         <FadeContent key={index} delay={index * 100}>
                             <TiltedCard tiltAmount={3}>
-                                <div className="group rounded-xl border border-zinc-800 bg-zinc-900/30 px-5 py-4 transition-colors hover:border-zinc-700">
+                                <div className="group rounded-xl border border-neutral-300/70 dark:border-zinc-800 bg-white/40 dark:bg-zinc-900/30 px-5 py-4 transition-colors hover:border-neutral-400 dark:hover:border-zinc-700">
                                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                                         <div className="flex-1">
                                             <div className="flex items-center gap-2 mb-2">
-                                                <h3 className="text-white text-base font-medium group-hover:text-[#a78bfa] transition-colors">
+                                                <h3 className="text-neutral-900 dark:text-white text-base font-medium group-hover:text-[#a78bfa] transition-colors">
                                                     {project.title}
                                                 </h3>
                                                 <div className="flex gap-1.5">
                                                     {project.tech.map((t, i) => (
-                                                        <span key={i} className="text-[10px] px-2 py-0.5 bg-zinc-800/50 text-zinc-500 rounded-full border border-zinc-800/50">
+                                                        <span key={i} className="text-[10px] px-2 py-0.5 bg-neutral-200/70 dark:bg-zinc-800/50 text-neutral-600 dark:text-zinc-500 rounded-full border border-neutral-300/70 dark:border-zinc-800/50">
                                                             {t}
                                                         </span>
                                                     ))}
                                                 </div>
                                             </div>
-                                            <p className="text-zinc-400 text-sm leading-relaxed mb-3">
+                                            <p className="text-neutral-600 dark:text-zinc-400 text-sm leading-relaxed mb-3">
                                                 {project.description}
                                             </p>
                                         </div>
@@ -113,7 +113,7 @@ const ProjectsPage = () => {
                                                 <Link
                                                     href={project.repoUrl}
                                                     target="_blank"
-                                                    className="flex items-center gap-1.5 text-xs text-zinc-500 hover:text-white transition-colors p-1"
+                                                    className="flex items-center gap-1.5 text-xs text-neutral-500 dark:text-zinc-500 hover:text-neutral-900 dark:hover:text-white transition-colors p-1"
                                                 >
                                                     <Github className="w-4 h-4" />
                                                     <span>Source</span>
@@ -141,7 +141,7 @@ const ProjectsPage = () => {
                 <FadeContent delay={500}>
                     <div className="mt-14">
                         <SectionLabel>3D &amp; Creative</SectionLabel>
-                        <div className="relative h-[600px] w-full overflow-hidden rounded-xl border border-zinc-800">
+                        <div className="relative h-[600px] w-full overflow-hidden rounded-xl border border-neutral-300/70 dark:border-zinc-800">
                             <InfiniteMenu
                                 items={[
                                     { image: '/3d-projects/House Ad.png', link: '#', title: 'Modern Villa', description: 'Real estate visualization' },
@@ -165,14 +165,14 @@ const ProjectsPage = () => {
 
                 {/* GitHub CTA */}
                 <FadeContent delay={600}>
-                    <div className="mt-14 border-t border-zinc-800/80 pt-8 text-center">
-                        <p className="mb-4 text-sm text-zinc-500">
+                    <div className="mt-14 border-t border-neutral-300/70 dark:border-zinc-800/80 pt-8 text-center">
+                        <p className="mb-4 text-sm text-neutral-500 dark:text-zinc-500">
                             More experiments and code snippets live on my GitHub.
                         </p>
                         <Link
                             href="https://github.com/Swotboysandy?tab=repositories"
                             target="_blank"
-                            className="inline-flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/40 px-4 py-2.5 text-sm text-zinc-300 transition-colors hover:border-zinc-700 hover:bg-zinc-900 hover:text-white"
+                            className="inline-flex items-center gap-2 rounded-xl border border-neutral-300/70 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/40 px-4 py-2.5 text-sm text-neutral-700 dark:text-zinc-300 transition-colors hover:border-neutral-400 dark:hover:border-zinc-700 hover:bg-white dark:hover:bg-zinc-900 hover:text-neutral-900 dark:hover:text-white"
                         >
                             <Github className="h-4 w-4" />
                             View GitHub profile
