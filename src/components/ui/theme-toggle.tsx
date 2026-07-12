@@ -5,6 +5,10 @@ import { Sun, Moon } from "lucide-react";
 // Toggles the `.dark` class on <html> and persists the choice. The actual
 // theme flip on load happens via an inline script in layout.tsx (before
 // paint, no flash) — this component just reflects and controls that state.
+//
+// The switch itself uses the View Transitions API: a circle expands from the
+// click point to reveal the new theme. Browsers without support (Safari,
+// Firefox) and reduced-motion users get an instant flip instead.
 export function ThemeToggle() {
     const [dark, setDark] = useState(true);
     const [mounted, setMounted] = useState(false);
@@ -14,14 +18,60 @@ export function ThemeToggle() {
         setDark(document.documentElement.classList.contains("dark"));
     }, []);
 
-    const toggle = () => {
-        const next = !dark;
-        setDark(next);
+    const applyTheme = (next: boolean) => {
         document.documentElement.classList.toggle("dark", next);
         document.documentElement.style.colorScheme = next ? "dark" : "light";
         try {
             localStorage.setItem("theme", next ? "dark" : "light");
         } catch {}
+    };
+
+    const toggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const next = !dark;
+        const startTransition = (document as unknown as {
+            startViewTransition?: (cb: () => void) => { ready: Promise<void> };
+        }).startViewTransition;
+
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (!startTransition || reducedMotion) {
+            setDark(next);
+            applyTheme(next);
+            return;
+        }
+
+        const x = e.clientX;
+        const y = e.clientY;
+        const endRadius = Math.hypot(
+            Math.max(x, window.innerWidth - x),
+            Math.max(y, window.innerHeight - y)
+        );
+
+        const transition = startTransition(() => {
+            setDark(next);
+            applyTheme(next);
+        });
+
+        transition.ready.then(() => {
+            document.documentElement.animate(
+                {
+                    clipPath: [
+                        `circle(0px at ${x}px ${y}px)`,
+                        `circle(${endRadius}px at ${x}px ${y}px)`,
+                    ],
+                },
+                {
+                    duration: 550,
+                    easing: "ease-in-out",
+                    pseudoElement: "::view-transition-new(root)",
+                }
+            );
+        }, () => {
+            // .ready can reject (e.g. no valid viewport to snapshot in some
+            // embedded/headless contexts) — the theme itself is already
+            // applied via the callback above, so this is just a silent,
+            // graceful skip of the animation.
+        });
     };
 
     if (!mounted) return null;
