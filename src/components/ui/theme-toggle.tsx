@@ -28,13 +28,15 @@ export function ThemeToggle() {
 
     const toggle = (e: React.MouseEvent<HTMLButtonElement>) => {
         const next = !dark;
-        const startTransition = (document as unknown as {
+        // Must stay a method call on `document` (not extracted into a bare
+        // reference) — detaching it throws "Illegal invocation" in Chromium.
+        const doc = document as Document & {
             startViewTransition?: (cb: () => void) => { ready: Promise<void> };
-        }).startViewTransition;
+        };
 
         const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        if (!startTransition || reducedMotion) {
+        if (typeof doc.startViewTransition !== "function" || reducedMotion) {
             setDark(next);
             applyTheme(next);
             return;
@@ -47,7 +49,7 @@ export function ThemeToggle() {
             Math.max(y, window.innerHeight - y)
         );
 
-        const transition = startTransition(() => {
+        const transition = doc.startViewTransition(() => {
             setDark(next);
             applyTheme(next);
         });
