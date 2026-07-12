@@ -48,14 +48,14 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #09090b;
+  background-color: var(--bg, #0f1729);
 }
 
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background-color: #09090b;
+  background-color: var(--bg, #0f1729);
   transition: background-color 0.8s cubic-bezier(0.65, 0, 0.35, 1), color 0.8s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
@@ -76,6 +76,21 @@ body {
 @keyframes shiny-text {
   0% { background-position: 100% center; }
   100% { background-position: -100% center; }
+}
+
+/* Home-page inline highlight shimmer — theme-aware (warm ink on light, white on dark),
+   kept separate from ShinyText so OliverFlix/Instalaz keep their own fixed-dark shimmer. */
+.home-shimmer {
+  background: linear-gradient(120deg, #4b3d26 40%, #8a7550 50%, #4b3d26 60%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shiny-text 3s linear infinite;
+}
+.dark .home-shimmer {
+  background: linear-gradient(120deg, #e2e8f0 40%, #ffffff 50%, #e2e8f0 60%);
+  background-size: 200% 100%;
 }
 
 @theme {
@@ -120,10 +135,10 @@ body {
 
 :root {
   --radius: 0.625rem;
-  /* corner-blob backdrop (light fallback) */
-  --bg: #ffffff;
-  --blob-1: rgba(124, 90, 200, 0.12);
-  --blob-2: rgba(70, 95, 190, 0.10);
+  /* corner-blob backdrop — light theme, warm beige/cream palette */
+  --bg: #f6f0e4;
+  --blob-1: rgba(201, 164, 108, 0.35);
+  --blob-2: rgba(224, 196, 150, 0.28);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import ShinyText from "./components/animations/ShinyText";
 import { ProfileFooter } from "./components/home/profile-footer";
 
 const links = [
@@ -12,11 +11,11 @@ const links = [
   { label: "resume", href: "/Resume_Sunny_Kishor_Singh.pdf", external: true },
 ];
 
-// Bold, near-white, shimmering inline highlight (ShinyText) — works for internal
-// and external links.
+// Bold, shimmering inline highlight (warm ink on light, white on dark) — works
+// for internal and external links.
 const Highlight = ({ href, children }: { href: string; children: React.ReactNode }) => {
   const cls = "font-bold underline-offset-4 hover:underline";
-  const inner = <ShinyText color="white">{children}</ShinyText>;
+  const inner = <span className="home-shimmer">{children}</span>;
   return href.startsWith("/") ? (
     <Link href={href} className={cls}>
       {inner}
@@ -57,17 +56,17 @@ const Page = () => {
 
         {/* Name */}
         <h1
-          className="text-center text-[2.75rem] italic leading-none tracking-tight text-white sm:text-6xl"
+          className="text-center text-[2.75rem] italic leading-none tracking-tight text-neutral-900 dark:text-white sm:text-6xl"
           style={{ fontFamily: "var(--font-serif)" }}
         >
           Sunny Kishor Singh
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-2.5 text-sm tracking-wide text-[#cbd5e1]">software engineer &amp; creative technologist</p>
+        <p className="mt-2.5 text-sm tracking-wide text-neutral-600 dark:text-[#cbd5e1]">software engineer &amp; creative technologist</p>
 
         {/* Bio */}
-        <div className="mt-7 w-full space-y-4 text-left text-[15.5px] leading-[1.7] text-[#cbd5e1] [&_p]:text-[#cbd5e1]">
+        <div className="mt-7 w-full space-y-4 text-left text-[15.5px] leading-[1.7] text-neutral-700 dark:text-[#cbd5e1] [&_p]:text-neutral-700 dark:[&_p]:text-[#cbd5e1]">
           <p>
             I&rsquo;m Sunny, a software engineer who likes turning rough ideas into things people can actually
             use. Most of what I make lives on the web or on a phone, and I care about how it feels just as much as
@@ -95,13 +94,13 @@ const Page = () => {
         </div>
 
         {/* Link row (replaces the floating dock) */}
-        <nav className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-sm text-[#cbd5e1]">
+        <nav className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-sm text-neutral-600 dark:text-[#cbd5e1]">
           {links.map((l) => (
             <Link
               key={l.label}
               href={l.href}
               target={l.external ? "_blank" : undefined}
-              className="transition-colors hover:text-white"
+              className="transition-colors hover:text-neutral-900 dark:hover:text-white"
             >
               {l.label}
             </Link>

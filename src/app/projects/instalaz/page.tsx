@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import FadeContent from "../../components/animations/FadeContent";
 
-const ACCENT = "#D8FF3D";
+const ACCENT = "#60a5fa";
 
 /* ── brand mark (matches the app's favicon) ──────────────────────────── */
 
@@ -49,7 +49,7 @@ const SectionLabel = ({ icon: Icon, children }: { icon: React.ElementType; child
     <div className="flex items-center gap-2 mb-3">
         <span
             className="flex items-center justify-center w-7 h-7 rounded-md"
-            style={{ backgroundColor: "rgba(216,255,61,0.1)", border: "1px solid rgba(216,255,61,0.2)" }}
+            style={{ backgroundColor: "rgba(96,165,250,0.1)", border: "1px solid rgba(96,165,250,0.2)" }}
         >
             <Icon className="w-3.5 h-3.5" style={{ color: ACCENT }} />
         </span>
@@ -98,11 +98,11 @@ const InstalazPage = () => {
                 <FadeContent delay={60}>
                     <div
                         className="relative overflow-hidden rounded-2xl border px-7 py-10 sm:px-9 sm:py-12"
-                        style={{ backgroundColor: "#0B0B0E", borderColor: "rgba(216,255,61,0.2)" }}
+                        style={{ backgroundColor: "#0B0B0E", borderColor: "rgba(96,165,250,0.2)" }}
                     >
                         <div
                             className="pointer-events-none absolute inset-0"
-                            style={{ background: "radial-gradient(120% 120% at 50% 0%, rgba(216,255,61,0.14), transparent 60%)" }}
+                            style={{ background: "radial-gradient(120% 120% at 50% 0%, rgba(96,165,250,0.14), transparent 60%)" }}
                         />
                         <div className="relative flex items-center gap-4">
                             <InstalazMark size={60} />
@@ -117,7 +117,7 @@ const InstalazPage = () => {
                         <div className="flex flex-wrap items-center gap-2 mb-4">
                             <span
                                 className="text-[11px] px-2.5 py-1 rounded-full"
-                                style={{ backgroundColor: "rgba(216,255,61,0.1)", color: "#e9ffa3", border: "1px solid rgba(216,255,61,0.2)" }}
+                                style={{ backgroundColor: "rgba(96,165,250,0.1)", color: "#bfdbfe", border: "1px solid rgba(96,165,250,0.2)" }}
                             >
                                 Full-Stack
                             </span>
@@ -234,8 +234,8 @@ const InstalazPage = () => {
                     <section
                         className="mt-12 rounded-2xl border px-6 py-7"
                         style={{
-                            borderColor: "rgba(216,255,61,0.2)",
-                            background: "linear-gradient(to bottom, rgba(216,255,61,0.06), transparent)",
+                            borderColor: "rgba(96,165,250,0.2)",
+                            background: "linear-gradient(to bottom, rgba(96,165,250,0.06), transparent)",
                         }}
                     >
                         <SectionLabel icon={Sparkles}>Where it is now</SectionLabel>

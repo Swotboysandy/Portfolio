@@ -22,12 +22,12 @@ export function ProfileFooter() {
     }, []);
 
     return (
-        <div className="relative z-10 flex shrink-0 items-center justify-center gap-2 pb-6 pt-6 text-xs text-[#cbd5e1]">
-            <IoLocationSharp className="h-3.5 w-3.5 text-zinc-600" />
+        <div className="relative z-10 flex shrink-0 items-center justify-center gap-2 pb-6 pt-6 text-xs text-neutral-600 dark:text-[#cbd5e1]">
+            <IoLocationSharp className="h-3.5 w-3.5 text-neutral-400 dark:text-zinc-600" />
             <span>India</span>
             {time && (
                 <>
-                    <span className="text-zinc-700">·</span>
+                    <span className="text-neutral-300 dark:text-zinc-700">·</span>
                     <span className="tabular-nums">{time} IST</span>
                 </>
             )}
