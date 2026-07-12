@@ -79,8 +79,10 @@ const Story = ({
 /* ── page ────────────────────────────────────────────────────────────── */
 
 const OliverFlixPage = () => {
+    // Fixed-dark, branded case study — always dark regardless of the site
+    // theme toggle, so it never inherits the light canvas behind it.
     return (
-        <main className="min-h-screen pt-24 pb-32">
+        <main className="relative z-10 min-h-screen bg-[#09090b] pt-24 pb-32">
             <div className="max-w-2xl mx-auto px-5 sm:px-7">
                 {/* Back */}
                 <FadeContent>
