@@ -7,6 +7,7 @@ import {
     Cookie,
     ImageIcon,
     Lock,
+    KeyRound,
     Tv,
     Zap,
     RefreshCw,
@@ -258,6 +259,29 @@ const OliverFlixPage = () => {
                             </p>
                         </section>
                     </FadeContent>
+
+                    <Story icon={KeyRound} label="The detail nobody documents" title="One byte, hidden in plain sight">
+                        <p>
+                            The decryption itself had its own dead end, and this is the part I don&rsquo;t usually
+                            tell people. I had the right algorithm, the right key, the right everything on paper —
+                            and the video still came out as static. No error, no stack trace to Google, no forum
+                            thread with someone else&rsquo;s exact problem. Just noise where a cartoon should be, for
+                            about four days straight.
+                        </p>
+                        <p>
+                            The answer turned out to be one tiny, undocumented thing: the server was hiding a{" "}
+                            <span className="text-zinc-200">version index</span> inside the payload itself, a single
+                            marker that told you which half of a longer key was the real one. Nothing on the
+                            internet mentions it. There&rsquo;s no spec for it. I only found it by decrypting the
+                            same file over and over with slightly different byte offsets, at 2&nbsp;a.m., until one
+                            combination stopped being noise and turned into a title card.
+                        </p>
+                        <p>
+                            That&rsquo;s honestly the part of building things I&rsquo;m most attached to — not the
+                            clever bit, the stubborn bit. Nobody hands you that byte. You just have to be the kind
+                            of person who keeps poking at something broken long after it stops being reasonable to.
+                        </p>
+                    </Story>
 
                     <Story icon={Tv} label="Live TV" title={"The “easy” win"}>
                         <p>

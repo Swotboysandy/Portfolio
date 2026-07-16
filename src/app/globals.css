@@ -49,6 +49,12 @@
 html {
   scroll-behavior: smooth;
   background-color: var(--bg, #0f1729);
+  /* Always reserve the scrollbar's gutter, whether or not it's actually
+     showing. Without this, the View Transitions API briefly hides the
+     scrollbar during the theme-toggle animation (and pages can differ in
+     height between themes), each of which would otherwise jolt the page
+     sideways by the scrollbar's width. */
+  scrollbar-gutter: stable;
 }
 
 body {
