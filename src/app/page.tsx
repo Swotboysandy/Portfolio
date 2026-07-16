@@ -63,7 +63,7 @@ const Page = () => {
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-2.5 text-sm tracking-wide text-neutral-600 dark:text-[#cbd5e1]">software engineer &amp; creative technologist</p>
+        <p className="mt-2.5 text-sm tracking-wide text-neutral-600 dark:text-[#cbd5e1]">software engineer &amp; reverse engineer</p>
 
         {/* Bio */}
         <div className="mt-7 w-full space-y-4 text-left text-[15.5px] leading-[1.7] text-neutral-700 dark:text-[#cbd5e1] [&_p]:text-neutral-700 dark:[&_p]:text-[#cbd5e1]">

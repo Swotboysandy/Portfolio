@@ -14,14 +14,24 @@ const ShinyText = ({
     color = "violet",
     speed = 3
 }: ShinyTextProps) => {
-    const baseColor = color === 'white' ? '#e2e8f0' : '#a78bfa';
-    const shineColor = color === 'white' ? '#ffffff' : '#e9d5ff';
+    // The 'violet' variant is theme-aware via the .shiny-violet CSS class
+    // (see globals.css) — deep purple on light, soft lavender on dark.
+    if (color === 'violet') {
+        return (
+            <span
+                className={`inline shiny-violet ${className}`}
+                style={{ animationDuration: `${speed}s` }}
+            >
+                {children}
+            </span>
+        );
+    }
 
     return (
         <span
             className={`inline ${className}`}
             style={{
-                background: `linear-gradient(120deg, ${baseColor} 40%, ${shineColor} 50%, ${baseColor} 60%)`,
+                background: `linear-gradient(120deg, #e2e8f0 40%, #ffffff 50%, #e2e8f0 60%)`,
                 backgroundSize: '200% 100%',
                 WebkitBackgroundClip: 'text',
                 backgroundClip: 'text',

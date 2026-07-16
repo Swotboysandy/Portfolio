@@ -12,8 +12,6 @@ import {
 } from "lucide-react";
 import FadeContent from "../../components/animations/FadeContent";
 
-const ACCENT = "#60a5fa";
-
 /* ── brand mark (matches the app's favicon) ──────────────────────────── */
 
 const InstalazMark = ({ size = 64 }: { size?: number }) => (
@@ -51,9 +49,9 @@ const SectionLabel = ({ icon: Icon, children }: { icon: React.ElementType; child
             className="flex items-center justify-center w-7 h-7 rounded-md"
             style={{ backgroundColor: "rgba(96,165,250,0.1)", border: "1px solid rgba(96,165,250,0.2)" }}
         >
-            <Icon className="w-3.5 h-3.5" style={{ color: ACCENT }} />
+            <Icon className="w-3.5 h-3.5 text-[#1d4ed8] dark:text-[#60a5fa]" />
         </span>
-        <span className="text-zinc-500 text-xs uppercase tracking-wider">{children}</span>
+        <span className="text-neutral-500 dark:text-zinc-500 text-xs uppercase tracking-wider">{children}</span>
     </div>
 );
 
@@ -69,10 +67,10 @@ const Story = ({
     children: React.ReactNode;
 }) => (
     <FadeContent>
-        <section className="border-t border-zinc-800 pt-8">
+        <section className="border-t border-neutral-300/70 dark:border-zinc-800 pt-8">
             <SectionLabel icon={icon}>{label}</SectionLabel>
-            <h2 className="text-white text-xl sm:text-2xl font-semibold mb-3 tracking-tight">{title}</h2>
-            <div className="space-y-3 text-zinc-400 text-sm sm:text-[15px] leading-relaxed">{children}</div>
+            <h2 className="text-neutral-900 dark:text-white text-xl sm:text-2xl font-semibold mb-3 tracking-tight">{title}</h2>
+            <div className="space-y-3 text-neutral-600 dark:text-zinc-400 text-sm sm:text-[15px] leading-relaxed">{children}</div>
         </section>
     </FadeContent>
 );
@@ -80,16 +78,14 @@ const Story = ({
 /* ── page ────────────────────────────────────────────────────────────── */
 
 const InstalazPage = () => {
-    // Fixed-dark, branded case study — always dark regardless of the site
-    // theme toggle, so it never inherits the light canvas behind it.
     return (
-        <main className="relative z-10 min-h-screen bg-[#09090b] pt-24 pb-32">
+        <main className="relative z-10 min-h-screen pt-24 pb-32">
             <div className="max-w-2xl mx-auto px-5 sm:px-7">
                 {/* Back */}
                 <FadeContent>
                     <Link
                         href="/projects"
-                        className="inline-flex items-center gap-2 text-zinc-500 hover:text-white transition-colors mb-6 text-sm"
+                        className="inline-flex items-center gap-2 text-neutral-500 dark:text-zinc-500 hover:text-neutral-900 dark:hover:text-white transition-colors mb-6 text-sm"
                     >
                         <ArrowLeft className="w-4 h-4" />
                         Back to Projects
@@ -118,19 +114,19 @@ const InstalazPage = () => {
                     <div className="mt-7">
                         <div className="flex flex-wrap items-center gap-2 mb-4">
                             <span
-                                className="text-[11px] px-2.5 py-1 rounded-full"
-                                style={{ backgroundColor: "rgba(96,165,250,0.1)", color: "#bfdbfe", border: "1px solid rgba(96,165,250,0.2)" }}
+                                className="text-[11px] px-2.5 py-1 rounded-full text-[#1d4ed8] dark:text-[#bfdbfe]"
+                                style={{ backgroundColor: "rgba(96,165,250,0.1)", border: "1px solid rgba(96,165,250,0.2)" }}
                             >
                                 Full-Stack
                             </span>
-                            <span className="text-[11px] px-2.5 py-1 rounded-full bg-zinc-800/50 text-zinc-400 border border-zinc-800">
+                            <span className="text-[11px] px-2.5 py-1 rounded-full bg-neutral-200/60 dark:bg-zinc-800/50 text-neutral-600 dark:text-zinc-400 border border-neutral-300/70 dark:border-zinc-800">
                                 Solo build
                             </span>
                         </div>
-                        <h1 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-snug">
+                        <h1 className="text-2xl sm:text-3xl font-semibold text-neutral-900 dark:text-white tracking-tight leading-snug">
                             Post everywhere — without living in your feeds.
                         </h1>
-                        <p className="text-zinc-400 text-sm sm:text-base leading-relaxed mt-4">
+                        <p className="text-neutral-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed mt-4">
                             A social scheduling tool that drafts your posts with AI, fills one calendar, and publishes
                             across Instagram, Facebook, YouTube, Reddit and more — built so staying consistent everywhere
                             runs on autopilot instead of willpower.
@@ -142,11 +138,11 @@ const InstalazPage = () => {
                 <FadeContent delay={180}>
                     <div className="grid grid-cols-2 gap-3 mt-8">
                         {stats.map((s, i) => (
-                            <div key={i} className="rounded-xl border border-zinc-800 bg-zinc-900/30 px-4 py-3.5">
-                                <div className="text-lg sm:text-xl font-semibold tracking-tight" style={{ color: ACCENT }}>
+                            <div key={i} className="rounded-xl border border-neutral-300/70 dark:border-zinc-800 bg-white/40 dark:bg-zinc-900/30 px-4 py-3.5">
+                                <div className="text-lg sm:text-xl font-semibold tracking-tight text-[#1d4ed8] dark:text-[#60a5fa]">
                                     {s.value}
                                 </div>
-                                <div className="text-zinc-500 text-xs leading-snug mt-1">{s.label}</div>
+                                <div className="text-neutral-500 dark:text-zinc-500 text-xs leading-snug mt-1">{s.label}</div>
                             </div>
                         ))}
                     </div>
@@ -157,7 +153,7 @@ const InstalazPage = () => {
                     <Story icon={Clock} label="The idea" title="Consistency is a part-time job">
                         <p>
                             Every platform rewards the same thing —{" "}
-                            <span className="text-zinc-200">showing up consistently</span> — and quietly punishes you
+                            <span className="text-neutral-900 dark:text-zinc-200">showing up consistently</span> — and quietly punishes you
                             for going dark. But keeping Instagram, Facebook, YouTube and Reddit all fed means writing in
                             different voices, at the right hours, across a pile of open tabs.
                         </p>
@@ -176,7 +172,7 @@ const InstalazPage = () => {
                         </p>
                         <p>
                             So I built Instalaz for an audience of one. Then it turned out everyone around me had the exact
-                            same problem — <span className="text-zinc-200">too much to do, too little time to post</span> —
+                            same problem — <span className="text-neutral-900 dark:text-zinc-200">too much to do, too little time to post</span> —
                             so I polished it up and opened it for everyone.
                         </p>
                     </Story>
@@ -189,7 +185,7 @@ const InstalazPage = () => {
                             locally, exactly where you left it.
                         </p>
                         <p>
-                            The goal was simple — <span className="text-zinc-200">you should never stare at an empty box</span>.
+                            The goal was simple — <span className="text-neutral-900 dark:text-zinc-200">you should never stare at an empty box</span>.
                             There&rsquo;s always a strong first draft to react to.
                         </p>
                     </Story>
@@ -208,7 +204,7 @@ const InstalazPage = () => {
                     <Story icon={Bot} label="The AI brain" title="Generation that never goes blank">
                         <p>
                             Free AI APIs are generous until they aren&rsquo;t — rate limits, outages, the occasional bad day.
-                            So the AI layer isn&rsquo;t one provider, it&rsquo;s a <span className="text-zinc-200">chain</span>: if the
+                            So the AI layer isn&rsquo;t one provider, it&rsquo;s a <span className="text-neutral-900 dark:text-zinc-200">chain</span>: if the
                             first model is busy or down, the request quietly falls through to the next, and the next.
                         </p>
                         <p>
@@ -241,7 +237,7 @@ const InstalazPage = () => {
                         }}
                     >
                         <SectionLabel icon={Sparkles}>Where it is now</SectionLabel>
-                        <p className="text-zinc-300 text-sm sm:text-[15px] leading-relaxed">
+                        <p className="text-neutral-700 dark:text-zinc-300 text-sm sm:text-[15px] leading-relaxed">
                             Connect your accounts across Instagram, Facebook, YouTube, Reddit and more, draft with AI,
                             fill one calendar, and a background queue publishes everywhere on time — retrying on failure,
                             reporting back, and reshaping each post to fit the platform it&rsquo;s headed to. It started as
@@ -254,12 +250,12 @@ const InstalazPage = () => {
                 {/* Tech stack */}
                 <FadeContent>
                     <section className="mt-10">
-                        <h2 className="text-zinc-500 text-xs uppercase tracking-wider mb-4">Under the hood</h2>
+                        <h2 className="text-neutral-500 dark:text-zinc-500 text-xs uppercase tracking-wider mb-4">Under the hood</h2>
                         <div className="flex flex-wrap gap-2">
                             {stack.map((t, i) => (
                                 <span
                                     key={i}
-                                    className="text-xs px-3 py-1.5 rounded-full bg-zinc-900/40 text-zinc-400 border border-zinc-800 hover:border-zinc-700 hover:text-zinc-200 transition-colors"
+                                    className="text-xs px-3 py-1.5 rounded-full bg-neutral-100/60 dark:bg-zinc-900/40 text-neutral-600 dark:text-zinc-400 border border-neutral-300/70 dark:border-zinc-800 hover:border-neutral-400 dark:hover:border-zinc-700 hover:text-neutral-900 dark:hover:text-zinc-200 transition-colors"
                                 >
                                     {t}
                                 </span>
@@ -270,10 +266,10 @@ const InstalazPage = () => {
 
                 {/* Back footer */}
                 <FadeContent>
-                    <div className="mt-12 border-t border-zinc-800 pt-8">
+                    <div className="mt-12 border-t border-neutral-300/70 dark:border-zinc-800 pt-8">
                         <Link
                             href="/projects"
-                            className="inline-flex items-center gap-2 text-zinc-500 hover:text-white transition-colors text-sm"
+                            className="inline-flex items-center gap-2 text-neutral-500 dark:text-zinc-500 hover:text-neutral-900 dark:hover:text-white transition-colors text-sm"
                         >
                             <ArrowLeft className="w-4 h-4" />
                             Back to all projects
