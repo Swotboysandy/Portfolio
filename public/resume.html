@@ -8,11 +8,11 @@
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
   :root {
-    --ink: #1a1a1a;
+    --ink: #173a63;
     --body: #2b2b2b;
     --muted: #555;
     --link: #0e7490;
-    --rule: #1a1a1a;
+    --rule: #173a63;
   }
 
   * { box-sizing: border-box; }
@@ -56,7 +56,7 @@
   .page {
     width: 210mm;
     margin: 18px auto;
-    padding: 9mm 14mm;
+    padding: 7.5mm 14mm;
     background: #fff;
     box-shadow: 0 6px 30px rgba(0,0,0,0.18);
   }
@@ -68,8 +68,8 @@
   /* ── Header ──────────────────────────────────────────── */
   .resume-header {
     text-align: center;
-    padding-bottom: 12px;
-    margin-bottom: 2px;
+    padding-bottom: 8px;
+    margin-bottom: 0px;
     border-bottom: 1.3px solid var(--rule);
   }
   .name {
@@ -77,7 +77,13 @@
     font-weight: 700;
     letter-spacing: -0.4px;
     color: var(--ink);
-    margin: 0 0 7px;
+    margin: 0 0 3px;
+  }
+  .title {
+    font-size: 11.5px;
+    font-weight: 400;
+    color: var(--body);
+    margin: 0 0 6px;
   }
   .contact {
     font-size: 10.8px;
@@ -90,7 +96,7 @@
   .sep { color: #bbb; margin: 0 6px; }
 
   /* ── Sections ────────────────────────────────────────── */
-  .section { margin-top: 10px; }
+  .section { margin-top: 8px; }
   .section h2 {
     font-size: 13px;
     font-weight: 700;
@@ -104,7 +110,7 @@
 
   p.summary { font-size: 10.8px; line-height: 1.4; margin: 0; color: var(--body); }
 
-  .entry { margin-bottom: 6px; break-inside: avoid; }
+  .entry { margin-bottom: 5px; break-inside: avoid; }
   .entry:last-child { margin-bottom: 0; }
   .entry .head {
     font-size: 11.3px;
@@ -119,8 +125,8 @@
     padding-left: 16px;
   }
   li {
-    font-size: 10.6px;
-    line-height: 1.32;
+    font-size: 10.4px;
+    line-height: 1.26;
     margin-bottom: 1px;
     color: var(--body);
     break-inside: avoid;
@@ -162,18 +168,19 @@
 
     <header class="resume-header">
       <h1 class="name">Sunny Kishor Singh</h1>
+      <p class="title">Full Stack Developer | React, Next.js, TypeScript, Android (Kotlin)</p>
       <div class="contact">
         <div>
-          India <span class="sep">·</span>
+          India <span class="sep">|</span>
           <a href="mailto:sunnysinghchauhan760@gmail.com">sunnysinghchauhan760@gmail.com</a>
-          <span class="sep">·</span> 7667486824
+          <span class="sep">|</span> +91 7667486824
         </div>
         <div>
           <a href="https://github.com/Swotboysandy">GitHub</a>
-          <span class="sep">·</span>
+          <span class="sep">|</span>
           <a href="https://www.linkedin.com/in/s7-chauhan/">LinkedIn</a>
-          <span class="sep">·</span>
-          <a href="#">Portfolio</a>
+          <span class="sep">|</span>
+          <a href="https://sunny-kishor-singh.vercel.app/">Portfolio</a>
         </div>
       </div>
     </header>
@@ -181,11 +188,12 @@
     <section class="section">
       <h2>Professional Summary</h2>
       <p class="summary">
-        Full Stack Developer with 3+ years of experience in web and mobile development. Skilled in React,
-        Next.js, JavaScript, React Native (Expo), and REST APIs. Proficient in building modern web
-        applications, responsive UIs, and cross-platform mobile apps. Experienced with WordPress, Webflow,
-        Shopify, and Framer. Proven ability to lead frontend projects and deliver high-performance, scalable
-        solutions in fast-paced, collaborative environments.
+        3+ years building web and mobile products, from client sites to self-built apps used by real people.
+        Lead frontend work at DraftssTech; previously spent two years at Sukan (Netherlands), promoted to
+        Senior Web Developer overseeing architecture, performance, and a small team. Outside client work, ship
+        and maintain self-built apps end-to-end — including OliverFlix (Android, on-device stream playback)
+        and Instalaz (AI-assisted social scheduler) — handling everything from architecture to release.
+        Comfortable owning a project from idea to production in fast-paced, collaborative environments.
       </p>
     </section>
 
@@ -203,14 +211,14 @@
       </div>
 
       <div class="entry">
-        <p class="head">Full Stack Web Developer (Remote) | Sukan (Netherlands) | Nov 2023 – Jun 2025</p>
+        <p class="head">Senior Web Developer (Remote) | Sukan (Netherlands) | Nov 2023 – Dec 2025</p>
         <ul>
-          <li>Developed and maintained responsive WordPress websites from scratch using custom themes, ACF, and plugin development.</li>
-          <li>Built user-friendly front-end interfaces using HTML5, CSS3, JavaScript, and jQuery aligned to design wireframes.</li>
+          <li>Promoted to Senior Web Developer (Feb 2025) after 15 months as Web Developer &amp; Visual Designer; owned end-to-end WordPress architecture, code quality, performance, and security.</li>
+          <li>Built custom themes, plugins, and client integrations; developed front-end interfaces with HTML5, CSS3, JavaScript, and jQuery aligned to design wireframes.</li>
+          <li>Mentored junior developers and collaborated with designers and content teams to deliver robust, user-focused solutions.</li>
           <li>Integrated third-party tools (HubSpot, Stripe, PayPal) and custom APIs for marketing automation and reporting.</li>
-          <li>Optimized site speed and security via caching, lazy loading, SSL setup, and Core Web Vitals best practices.</li>
-          <li>Managed Git-based version control, deployments, and troubleshooting across staging and production environments.</li>
-          <li>Worked cross-functionally with designers, marketers, and PMs in a remote agile environment.</li>
+          <li>Implemented advanced caching, CDN, and Core Web Vitals optimizations to cut load times and improve UX.</li>
+          <li>Managed Git-based version control, CI/CD deployments, and site migrations across staging and production; translated client requirements into technical specs.</li>
         </ul>
       </div>
 
@@ -229,11 +237,10 @@
     <section class="section">
       <h2>Projects</h2>
       <ul class="proj">
-        <li><b>OliverFlix</b> — Android app unifying six streaming services and 1,000+ live TV channels in one home screen, with on-device AES-256 stream resolution, ~1s cached loads, and self-updating content. <i>(Kotlin, Android)</i></li>
+        <li><b>OliverFlix</b> — Android app unifying six streaming services and 1,000+ live TV channels in one home screen, with on-device media playback, ~1s cached loads, and self-updating content. <i>(Kotlin, Android)</i></li>
         <li><b>Instalaz</b> — Full-stack social media scheduler with an AI post composer (multi-model fallback), multi-platform auto-publishing, and a background job queue. <i>(Next.js, TypeScript, PostgreSQL, Redis)</i></li>
+        <li><b>Groovix</b> — Cross-platform music player (React Native, native Android build) with a real-time collaborative &quot;Jam Room&quot; — shared queue, live voting, Supabase-backed sync — plus a self-updating client and offline downloads. <i>(React Native, Supabase, Kotlin)</i></li>
         <li><b>YoYoMusic</b> — Real-time, community-powered music room where users join, queue songs, and vote to play/skip. Built with HTML, CSS, JavaScript, Node.js. Features real-time sync, voting, and live playback. <a href="https://github.com/Swotboysandy/yoyomusic">GitHub</a> <span class="sep">·</span> <a href="https://yoyomusic.onrender.com/">Live Demo</a></li>
-        <li><b>PracandyWalls</b> — Wallpaper app built with React Native (Expo). Native wallpaper module, full-screen preview mode, smart storage handling, and a modern dark-themed UI. <a href="https://github.com/Swotboysandy/pracandywalls">GitHub</a> <span class="sep">·</span> <a href="https://pracandywalls.vercel.app/">Live Demo</a></li>
-        <li><b>Portfolio Website</b> — Personal portfolio built with Next.js, TypeScript, and Tailwind CSS. Showcases projects, case studies, and experience with a responsive, animated design. <a href="https://github.com/Swotboysandy/Portfolio">GitHub</a></li>
       </ul>
     </section>
 
@@ -242,9 +249,9 @@
       <ul class="skills">
         <li><b>Front-End:</b> React, Next.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, jQuery, GSAP, Framer, responsive UI/UX</li>
         <li><b>CMS &amp; E-commerce:</b> WordPress, WooCommerce, Webflow, Shopify, custom themes &amp; plugins</li>
-        <li><b>Back-End:</b> PHP, Node.js, REST APIs, MySQL, PostgreSQL, Prisma, Laravel</li>
-        <li><b>Mobile Development:</b> Android (Kotlin), React Native (Expo), WebView integrations, Lottie animations</li>
-        <li><b>Real-Time &amp; AI:</b> WebSockets, Socket.io, live-sync apps, LLM integration (multi-model fallback)</li>
+        <li><b>Back-End:</b> PHP, Node.js, REST APIs, MySQL, PostgreSQL, Prisma, Laravel, Supabase</li>
+        <li><b>Mobile Development:</b> Android (Kotlin), React Native, WebView integrations, Lottie animations, native builds &amp; releases</li>
+        <li><b>Real-Time &amp; AI:</b> WebSockets, Socket.io, Supabase Realtime, collaborative apps, LLM integration (multi-model fallback)</li>
         <li><b>Integrations:</b> HubSpot, Google Analytics, Stripe, PayPal, Razorpay, SMTP, CRMs</li>
         <li><b>Tools &amp; Deployment:</b> Git, GitHub, VS Code, Android Studio, Vercel, Render, Redis, Photoshop, Canva</li>
       </ul>
@@ -253,21 +260,14 @@
     <section class="section">
       <h2>Education</h2>
       <ul>
-        <li><b>MCA</b> — VIT Vellore (in progress, expected 2026)</li>
-        <li><b>BCA</b> — MGM College of IT &amp; Management, Patna (2024)</li>
-        <li><b>Intermediate Science</b> — AN College, Patna (2021)</li>
-        <li><b>Matriculation</b> — Cambridge Public School, Patna (2019)</li>
+        <li><b>Master of Computer Applications (MCA)</b> — VIT Vellore (in progress, expected 2027)</li>
+        <li><b>Bachelor of Computer Applications (BCA)</b> — MGM College of IT &amp; Management, Patna (2024)</li>
       </ul>
     </section>
 
     <section class="section">
-      <h2>Interests</h2>
-      <p class="inline-list">Mobile app development | Real-time web applications | Open-source contributions | UI/UX trends &amp; performance optimization | Building user-centric tools</p>
-    </section>
-
-    <section class="section">
-      <h2>Hobbies</h2>
-      <p class="inline-list">Watching films &amp; series | Playing games | Creating 3D renders</p>
+      <h2>Interests &amp; Hobbies</h2>
+      <p class="inline-list">Real-time &amp; mobile app development | Open-source | Films &amp; series | Gaming | 3D rendering</p>
     </section>
 
   </main>
